@@ -1,6 +1,7 @@
 import os
 import main
 import animais
+import tutores
 
 def exibe_logo():
     print('''
@@ -44,3 +45,7 @@ def volta_ao_menu():
 def opcao_invalida():
     print('Opção inválida!\n')
     volta_ao_menu()
+
+
+        
+

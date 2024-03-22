@@ -1,11 +1,13 @@
+import tutores
 import animais
-import menus
+import funcoes
+
 
 def main():
-    lista = animais.listar_animais()
+    lista1 = tutores.listar_tutores()
+    lista2 = animais.listar_animais()
 
-    menus.exibe_logo()
-    menus.exibe_opçao()
+    tutores.adiciona_tutores(lista1, lista2)
 
 
 

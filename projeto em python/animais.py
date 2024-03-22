@@ -23,12 +23,6 @@ def listar_animais():
 
     return lista_animais
 
-def mostra_lista_de_animais(lista):
-    lista.sort(key=lambda x: x.nome)
-    print(f'{'Nome do animal'.ljust(20)} | {'Idade do animal'.ljust(20)} | {'Espécie do animal'.ljust(20)} | {'Saúde do animal'}' )
-    for animal in lista:
-        print(f'{animal.nome:<20} | {animal.idade:<20} | {animal.especie:<20} | {animal.saude}')
-
 
 def adiciona_animais(lista):
     print('Dados do animal\n')
@@ -40,15 +34,19 @@ def adiciona_animais(lista):
     animal = Animais(nome.title(), int(idade), especie.title(), saude.title())
     lista.append(animal)
 
-    ordena_lista(lista)
+    ordena_lista_animais(lista)
 
-def ordena_lista(lista):
-    arquivo = open('animais.txt', 'w')
+def ordena_lista_animais(lista):
+        arquivo = open('clinica.txt', 'w')
+        lista.sort(key=lambda x: x.nome)
+        for animal in lista:
+            arquivo.write(f'{animal.nome}, {animal.idade}, {animal.especie}, {animal.saude}\n')
+
+        arquivo.close()
+
+def mostra_lista_de_animais(lista):
     lista.sort(key=lambda x: x.nome)
+    print(f'{'Nome do animal'.ljust(20)} | {'Idade do animal'.ljust(20)} | {'Espécie do animal'.ljust(20)} | {'Saúde do animal'}' )
     for animal in lista:
-        arquivo.write(f'{animal.nome}, {animal.idade}, {animal.especie}, {animal.saude}\n')
+        print(f'{animal.nome:<20} | {animal.idade:<20} | {animal.especie:<20} | {animal.saude}')
 
-    arquivo.close()
-
-
-lista = listar_animais()
