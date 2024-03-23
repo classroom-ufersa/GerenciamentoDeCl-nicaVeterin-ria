@@ -46,6 +46,20 @@ def opcao_invalida():
     print('Opção inválida!\n')
     volta_ao_menu()
 
+def busca_nome(lista, nome):
+    inicio = 0
+    fim = len(lista) - 1
 
-        
+    while inicio <= fim:
+        meio = (inicio + fim) // 2
+        if lista[meio].nome == nome:
+            return meio
+        elif lista[meio].nome < nome:
+            inicio = meio + 1
+        else:
+            fim = meio - 1
+    
+    return -1
+
+
 
