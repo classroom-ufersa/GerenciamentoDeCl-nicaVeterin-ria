@@ -1,5 +1,6 @@
 import animais
 import funcoes
+import main
 
 class Tutores:
     def __init__(self, nome, contato, documento, animais_tutor):
@@ -19,7 +20,7 @@ def listar_tutores():
 
     for linha in linhas:
         nome, contato, documento, animais_tutor = linha.strip().split(',')
-        tutor = Tutores(nome.title(), int(contato), int(documento), (animais_tutor.title()))
+        tutor = Tutores(nome.title().strip(), int(contato), int(documento), (animais_tutor.title().strip()))
         lista_tutores.append(tutor)
 
     arquivo.close()
@@ -33,7 +34,9 @@ def salva_arquivo_tutores(lista):
         arquivo.write(f'{tutor.nome}, {tutor.contato}, {tutor.documento}, {tutor.animais_tutor}\n')
 
 def adiciona_tutores(lista1, lista2):
-    print('Dados do novo tutor')
+    funcoes.limpa_tela()
+    funcoes.adiciona_subtitulo('Dados do novo tutor')
+
     nome = str(input('Informe o nome do Tutor: '))
     contato = int(input('Informe o contato do tutor: '))
     documento = int(input('Informe o documento do tutor: '))
@@ -56,16 +59,19 @@ def adiciona_tutores(lista1, lista2):
     lista1.append(tutor)
 
     salva_arquivo_tutores(lista1)
+    funcoes.volta_ao_menu()
 
 def mostra_lista_de_tutores(lista):
+    funcoes.limpa_tela()
     lista.sort(key=lambda x: x.nome)
     print(f'{'Nome do tutor'.ljust(20)} | {'Contato do tutor'.ljust(20)} | {'Documento do tutor'.ljust(20)} | {'Animal responsável pelo tutor'}' )
     for tutor in lista:
         print(f'{tutor.nome:<20} | {tutor.contato:<20} | {tutor.documento:<20} | {tutor.animais_tutor}')
 
 def remove_tutor(lista):
+    funcoes.limpa_tela()
     mostra_lista_de_tutores(lista)
-    nome = str(input('Informe o nome do tutor a ser removido: '))
+    nome = str(input('\nInforme o nome do tutor a ser removido: '))
     nome = nome.title()
 
     posicao = funcoes.busca_nome(lista, nome)
@@ -75,11 +81,13 @@ def remove_tutor(lista):
         mostra_lista_de_tutores(lista)
         print('\nTutor não encontrado!\n')
         nome = str(input('Informe o nome de um tutor presente na lista: '))
+        nome = nome.title()
         posicao = funcoes.busca_nome(lista, nome)
 
     del lista[posicao]
 
     salva_arquivo_tutores(lista)
+    funcoes.volta_ao_menu()
 
 
 

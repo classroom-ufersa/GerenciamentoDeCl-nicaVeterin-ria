@@ -1,5 +1,4 @@
 import funcoes
-import tutores
 import main
 
 class Animais:
@@ -29,7 +28,9 @@ def listar_animais():
 
 
 def adiciona_animais(lista):
-    print('Dados do animal\n')
+    funcoes.limpa_tela()
+    funcoes.adiciona_subtitulo('Dados do novo animal')
+
     nome = str(input('Informe o nome do animal: '))
     idade = int(input('Informe a idade do animal: '))
     especie = str(input('Informe a especie do animal: '))
@@ -39,12 +40,13 @@ def adiciona_animais(lista):
     lista.append(animal)
 
     salva_arquivo_animais(lista)
+    funcoes.volta_ao_menu()
 
 def salva_arquivo_animais(lista):
     arquivo = open('animais.txt', 'w')
     lista.sort(key=lambda x: x.nome)
     for animal in lista:
-        arquivo.write(f'{animal.nome},{animal.idade},{animal.especie},{animal.saude}\n')
+        arquivo.write(f'{animal.nome}, {animal.idade}, {animal.especie}, {animal.saude}\n')
 
     arquivo.close()
 
@@ -55,8 +57,9 @@ def mostra_lista_de_animais(lista):
         print(f'{animal.nome:<20} | {animal.idade:<20} | {animal.especie:<20} | {animal.saude}')
 
 def remove_animal(lista):
+    funcoes.limpa_tela()
     mostra_lista_de_animais(lista)
-    nome = str(input('Informe o nome do animal a ser removido: '))
+    nome = str(input('\nInforme o nome do animal a ser removido: '))
     nome = nome.title()
 
     posicao = funcoes.busca_nome(lista, nome)
@@ -66,6 +69,7 @@ def remove_animal(lista):
         mostra_lista_de_animais(lista)
         print('\nAnimal não encontrado!\n')
         nome = str(input('Informe o nome de um animal presente na lista: '))
+        nome = nome.title()
         posicao = funcoes.busca_nome(lista, nome)
 
     del lista[posicao]
@@ -73,17 +77,19 @@ def remove_animal(lista):
     salva_arquivo_animais(lista)
 
 def editar_animal(lista):
+    funcoes.limpa_tela()
     mostra_lista_de_animais(lista)
-    animal = input('Informe o nome do animal que deseja editar: ')
-    animal.title()
+    animal = input('\nInforme o nome do animal que deseja editar: ')
+    animal = animal.title()
 
     posicao = funcoes.busca_nome(lista, animal)
 
     while posicao == -1:
         funcoes.limpa_tela()
         mostra_lista_de_animais(lista)
-        print('Animal não encontrado\n')
+        print('\nAnimal não encontrado\n')
         animal = str(input('Informe o nome de um animal presente na lista: '))
+        animal = animal.title()
         posicao = funcoes.busca_nome(lista, animal)
 
     menu_editar_animal()
@@ -91,27 +97,35 @@ def editar_animal(lista):
 
 def escolhe_opcao_editar(lista ,posicao):
     try:
-        opcao_escolhida = int(input('Escolha uma opcão: '))
+        opcao_escolhida = int(input('\nEscolha uma opcão: '))
 
         if opcao_escolhida == 1:
-            novo_nome = str(input('Informe o novo nome do animal'))
+            funcoes.adiciona_subtitulo('Novo nome')
+            novo_nome = str(input('Informe o novo nome do animal: '))
             novo_nome= novo_nome.title()
             lista[posicao].nome = novo_nome
             salva_arquivo_animais(lista)
         elif opcao_escolhida == 2:
+            funcoes.adiciona_subtitulo('Nova idade')
             nova_idade = int(input('Informe a nova idade do animal: '))
             lista[posicao].idade = nova_idade
             salva_arquivo_animais(lista)
         elif opcao_escolhida == 3:
+            funcoes.adiciona_subtitulo('Novo especie')
             nova_especie = str(input('Informe o nova espécie do animal: '))
             nova_especie = nova_especie.title()
             lista[posicao].especie = nova_especie
+            salva_arquivo_animais(lista)
         elif opcao_escolhida == 4:
+            funcoes.adiciona_subtitulo('Novo estado de saúde')
             nova_saude = str(input('Informe o novo estado de saúde do animal: '))
             nova_saude = nova_saude.title()
             lista[posicao].saude = nova_saude
+            salva_arquivo_animais(lista)
         elif opcao_escolhida == 5:
             main.main()
+        else:
+            funcoes.opcao_invalida()
 
     except:
         funcoes.opcao_invalida()
@@ -125,6 +139,7 @@ def menu_editar_animal():
     print('5. Sair')
 
 def busca_animal(lista):
+    funcoes.limpa_tela()
     nome = str(input('Informe o nome do animal: '))
     nome = nome.title()
 
@@ -134,15 +149,7 @@ def busca_animal(lista):
         animal_escolhido = lista[posicao]
         lista.sort(key=lambda x: x.nome)
         print(f'{'Nome do animal'.ljust(20)} | {'Idade do animal'.ljust(20)} | {'Espécie do animal'.ljust(20)} | {'Saúde do animal'}' )
-        print(f'{animal_escolhido.nome:<20} | {animal_escolhido.idade:<20} | {animal_escolhido.especie:<20} | {animal_escolhido.saude:<20}') 
+        print(f'{animal_escolhido.nome:<20} | {animal_escolhido.idade:<20} | {animal_escolhido.especie:<20} | {animal_escolhido.saude:<20}')
     else:
         funcoes.limpa_tela()
-        print('\nAnimal não encontrado!\n')
-        funcoes.volta_ao_menu()
-
-    
-
-
-
-
-
+        print('Esse animal não está presente na lista!')
