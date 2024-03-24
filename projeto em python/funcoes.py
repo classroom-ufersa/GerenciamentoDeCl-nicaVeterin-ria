@@ -31,7 +31,7 @@ def exibe_opçao():
     print('8. Sair')
 
 def adiciona_subtitulo(texto):
-    os.system('cls')
+    limpa_tela()
     linha = '*' * (len(texto))
     print(linha)
     print(texto)
@@ -40,7 +40,7 @@ def adiciona_subtitulo(texto):
 
 def volta_ao_menu():
     input('\nDigite uma tecla para voltar ao menu')
-    main()
+    main.main()
 
 def opcao_invalida():
     print('Opção inválida!\n')
@@ -61,5 +61,14 @@ def busca_nome(lista, nome):
     
     return -1
 
+def limpa_tela():
+    os.system('cls')
 
+def menu_editar_animal():
+    adiciona_subtitulo('Qual informção você deseja editar?')
+    print('1. Nome')
+    print('2. Idade')
+    print('3. Espécie')
+    print('4. Saúde')
+    print('5. Sair')
 
