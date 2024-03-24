@@ -20,7 +20,7 @@ def listar_animais():
 
     for linha in linhas:
         nome, idade, especie, saude = linha.strip().split(',')
-        animal = Animais(nome.title(), int(idade), especie.title(), saude.title())
+        animal = Animais(nome.title().strip(), int(idade), especie.title().strip(), saude.title().strip())
         lista_animais.append(animal)
         
     arquivo.close()
@@ -35,7 +35,7 @@ def adiciona_animais(lista):
     especie = str(input('Informe a especie do animal: '))
     saude = str(input('Informe a saude do animal: '))
 
-    animal = Animais(nome.title(), int(idade), especie.title(), saude.title())
+    animal = Animais(nome.title().strip(), int(idade), especie.title().strip(), saude.title().strip())
     lista.append(animal)
 
     salva_arquivo_animais(lista)
@@ -44,7 +44,7 @@ def salva_arquivo_animais(lista):
     arquivo = open('animais.txt', 'w')
     lista.sort(key=lambda x: x.nome)
     for animal in lista:
-        arquivo.write(f'{animal.nome}, {animal.idade}, {animal.especie}, {animal.saude}\n')
+        arquivo.write(f'{animal.nome},{animal.idade},{animal.especie},{animal.saude}\n')
 
     arquivo.close()
 
@@ -86,7 +86,7 @@ def editar_animal(lista):
         animal = str(input('Informe o nome de um animal presente na lista: '))
         posicao = funcoes.busca_nome(lista, animal)
 
-    funcoes.menu_editar_animal()
+    menu_editar_animal()
     escolhe_opcao_editar(lista, posicao)
 
 def escolhe_opcao_editar(lista ,posicao):
@@ -116,6 +116,29 @@ def escolhe_opcao_editar(lista ,posicao):
     except:
         funcoes.opcao_invalida()
 
+def menu_editar_animal():
+    funcoes.adiciona_subtitulo('Qual informção você deseja editar?')
+    print('1. Nome')
+    print('2. Idade')
+    print('3. Espécie')
+    print('4. Saúde')
+    print('5. Sair')
+
+def busca_animal(lista):
+    nome = str(input('Informe o nome do animal: '))
+    nome = nome.title()
+
+    posicao = funcoes.busca_nome(lista, nome)
+
+    if posicao != -1:
+        animal_escolhido = lista[posicao]
+        lista.sort(key=lambda x: x.nome)
+        print(f'{'Nome do animal'.ljust(20)} | {'Idade do animal'.ljust(20)} | {'Espécie do animal'.ljust(20)} | {'Saúde do animal'}' )
+        print(f'{animal_escolhido.nome:<20} | {animal_escolhido.idade:<20} | {animal_escolhido.especie:<20} | {animal_escolhido.saude:<20}') 
+    else:
+        funcoes.limpa_tela()
+        print('\nAnimal não encontrado!\n')
+        funcoes.volta_ao_menu()
 
     
 
