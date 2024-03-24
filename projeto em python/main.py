@@ -4,13 +4,13 @@ import funcoes
 
 
 def main():
-    lista1 = tutores.listar_tutores()
-    lista2 = animais.listar_animais()
+    funcoes.limpa_tela()
+    lista_animais = animais.listar_animais()
+    lista_tutores = tutores.listar_tutores()
 
-    tutores.adiciona_tutores(lista1, lista2)
-
-
-
+    funcoes.exibe_logo()
+    funcoes.exibe_opçao()
+    funcoes.escolhe_opcao_menu(lista_animais, lista_tutores)
 
 if __name__ == '__main__':
     main()
