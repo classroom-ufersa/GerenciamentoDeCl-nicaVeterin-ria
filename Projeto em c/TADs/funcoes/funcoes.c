@@ -87,7 +87,7 @@ int verificar_opcao(char* opcao){
     if(strlen(opcao) != 1){
         return 1;
     }
-    if(opcao[0] < '0' || opcao[0] > '9'){
+    if(opcao[0] < '0' || opcao[0] > '8'){
         return 1;
     }
     return 0;
@@ -146,7 +146,7 @@ void print_msg(int cod_msg){
     else if(cod_msg == 9) printf(TXT_yellow"\nAnimal n%co encontrado\n"TXT_reset,198);
     else if(cod_msg == 10) printf(TXT_red"\nErro de aloca%c%co de mem%cria\n\n"TXT_reset,135,198,162);
     else if(cod_msg == 11) printf(TXT_red"\nFalha na abertura do arquivo\n\n"TXT_reset);
-    else if(cod_msg == 12) printf(TXT_whitered"\n ENCERRANDO PROGRAMA"TXT_reset);
+    else if(cod_msg == 12) printf(TXT_whitered"\nENCERRANDO PROGRAMA"TXT_reset);
     else if(cod_msg == 13) printf(TXT_yellow"\nInforme uma esp%ccie v%clida.\n"TXT_reset,130,160);
     else if(cod_msg == 14) printf(TXT_red"\nEsp%ccie inv%clida.\n"TXT_reset,130,160);
     else if(cod_msg == 15) printf(TXT_yellow"\nInforme uma condi%c%co v%clida.\n"TXT_reset,135,198,160);

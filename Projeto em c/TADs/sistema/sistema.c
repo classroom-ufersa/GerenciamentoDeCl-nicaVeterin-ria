@@ -44,7 +44,7 @@ void adicionar_tutor(Tutores* lista_tutores){
             cabecalho("Adicionar tutor", "PEDROS VET");
             print_msg(5);
             pressiona_enter();
-            return lista_tutores;
+            return;
         }
     }
     char contato[N];
@@ -70,7 +70,7 @@ void adicionar_tutor(Tutores* lista_tutores){
             cabecalho("Adicionar tutor", "PEDROS VET");
             print_msg(6);
             pressiona_enter();
-            return lista_tutores;
+            return;
         }
     }
     char documento[N];
@@ -96,7 +96,7 @@ void adicionar_tutor(Tutores* lista_tutores){
             cabecalho("Adicionar tutor", "PEDROS VET");
             print_msg(7);
             pressiona_enter();
-            return lista_tutores;
+            return;
         }
     }
     lista_tutores = insere_tutores(lista_tutores,nome,contato,documento);
@@ -127,7 +127,7 @@ void remover_tutor(Tutores* lista_tutores){
             cabecalho("Remover tutor", "PEDROS VET");
             print_msg(5);
             pressiona_enter();
-            return lista_tutores;
+            return;
         }
     }
     lista_tutores = remove_tutores(lista_tutores,nome_busca);
@@ -157,7 +157,7 @@ void adicionar_animal(Tutores* lista_tutores) {
             cabecalho("Adicionar animal", "PEDROS VET");
             print_msg(5);
             pressiona_enter(); 
-            return lista_tutores;
+            return;
         }
     }
     Tutores* tutor = buscar_tutor(lista_tutores, nome_tutor);
@@ -165,7 +165,7 @@ void adicionar_animal(Tutores* lista_tutores) {
         cabecalho("Adicionar animal", "PEDROS VET");
         print_msg(8);
         pressiona_enter();
-        return lista_tutores;
+        return;
     }
     char nome_animal[N];
     cabecalho("Adicionar animal", "PEDROS VET");
@@ -189,7 +189,7 @@ void adicionar_animal(Tutores* lista_tutores) {
             cabecalho("Adicionar animal", "PEDROS VET");
             print_msg(5);
             pressiona_enter();
-            return lista_tutores;
+            return;
         }
     }
     char idade[N];
@@ -212,7 +212,7 @@ void adicionar_animal(Tutores* lista_tutores) {
             cabecalho("Adicionar animal", "PEDROS VET");
             print_msg(18);
             pressiona_enter();
-            return lista_tutores;
+            return;
         }
     }
     char especie[N];
@@ -237,7 +237,7 @@ void adicionar_animal(Tutores* lista_tutores) {
             cabecalho("Adicionar animal", "PEDROS VET");
             print_msg(14);
             pressiona_enter();
-            return lista_tutores;
+            return;
         }
     }
     char condicao[N];
@@ -262,7 +262,7 @@ void adicionar_animal(Tutores* lista_tutores) {
             cabecalho("Adicionar animal", "PEDROS VET");
             print_msg(16);
             pressiona_enter();
-            return lista_tutores;
+            return;
         }
     }
     tutor->lista_animais = insere_animais(tutor->lista_animais, nome_animal, idade, especie, condicao);
@@ -292,7 +292,7 @@ void remover_animal(Tutores* lista_tutores){
             cabecalho("Remover animal", "PEDROS VET");
             print_msg(5);
             pressiona_enter();
-            return lista_tutores;
+            return;
         }
     }
     char nome_animal[N];
@@ -317,7 +317,7 @@ void remover_animal(Tutores* lista_tutores){
             cabecalho("Remover animal", "PEDROS VET");
             print_msg(5);
             pressiona_enter();
-            return lista_tutores;
+            return;
         }
     }
     Tutores* tutor = buscar_tutor(lista_tutores, nome_tutor);
@@ -325,7 +325,7 @@ void remover_animal(Tutores* lista_tutores){
         cabecalho("Remover animal", "PEDROS VET");
         print_msg(8);
         pressiona_enter();
-        return lista_tutores;
+        return;
     }
     tutor->lista_animais = remove_animal(tutor->lista_animais, nome_animal);
     escrever_dados(lista_tutores);
@@ -354,7 +354,7 @@ void buscar_animal(Tutores* lista_tutores){
             cabecalho("Buscar animal", "PEDROS VET");
             print_msg(5);
             pressiona_enter();
-            return lista_tutores;
+            return;
         }
     }
     Tutores* temp1 = lista_tutores;
@@ -366,8 +366,9 @@ void buscar_animal(Tutores* lista_tutores){
     }
     else {
         while(temp1 != NULL){
-            temp2 = gnimal(temp1->lista_animais, nome_animal);
+            temp2 = busca_animal(temp1->lista_animais, nome_animal);
             if(temp2 != NULL){
+                cabecalho("Buscar animal", "PEDROS VET");
                 printf("Nome do tutor: %s\n",temp1->nome);
                 printf("Nome: %s\n",temp2->nome);
                 printf("Idade: %s\n",temp2->idade);
@@ -416,6 +417,14 @@ void listar_animais_tutor(Tutores* lista_tutores){
         }
         pressiona_enter();
     }
+}
+
+void liberar_memoria(Tutores* lista_tutores){
+    limpa_tela();
+    pedros_vet();
+    libera_tutores(lista_tutores);
+    printf("Ralew ralow");
+    print_msg(12);
 }
 
 Tutores* carregar_dados(Tutores* lista_tutores){

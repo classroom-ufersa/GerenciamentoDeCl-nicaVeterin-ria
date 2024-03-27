@@ -44,7 +44,7 @@ int main(void){
                 listar_animais_tutor(lista_tutores);
                 break;
             case '8':
-                //liberar_memoria(lista_tutores);
+                liberar_memoria(lista_tutores);
                 break;
             default:
                 print_msg(1);
