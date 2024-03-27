@@ -1,5 +1,6 @@
 import funcoes
 import main
+import tutores
 
 class Animais:
     def __init__(self, nome, idade, especie, saude):
