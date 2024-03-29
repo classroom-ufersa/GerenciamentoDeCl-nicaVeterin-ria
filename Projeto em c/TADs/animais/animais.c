@@ -103,3 +103,159 @@ void libera_animais(Animais* lista_animal){
         a = temp;
     }
 }
+
+void imprimir_animal(Animais* animal){
+    printf("\nNome: %s\n", animal->nome);
+    printf("Espécie: %s\n", animal->especie);
+    printf("Idade: %s\n", animal->idade);
+    printf("Condição: %s\n", animal->condicao);
+}
+
+void editar_nome_animal(Animais* animal){
+    cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+    printf("Nome atual: %s\n", animal->nome);
+    printf("Digite o novo nome:\n");
+    condicao_nome_add();
+    char nome[N];
+    printf(">>");
+    scanf(" %[^\n]", nome);
+    str_end(nome);
+    int count_erro = 0;
+    while ((verificar_nome(nome)) == 1 && count_erro <= 3) {
+        if (count_erro < 3) {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(2);
+            printf("Informe o nome do animal\n");
+            condicao_nome_add();
+            printf(">>");
+            scanf(" %[^\n]", nome);
+            str_end(nome);
+            count_erro++;
+        } else {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(5);
+            print_msg(21);
+            pressiona_enter();
+            return;
+        }
+    }
+    if (count_erro <= 3) {
+        strcpy(animal->nome, nome);
+        str_end(animal->nome);
+        capitalizeNames(animal->nome);
+        cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+        print_msg(22);
+        pressiona_enter();
+    }
+}
+
+void editar_idade_animal(Animais* animal){
+    cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+    printf("Idade atual: %s\n", animal->idade);
+    printf("Digite a nova idade:\n");
+    char idade[N];
+    printf(">>");
+    scanf(" %[^\n]", idade);
+    str_end(idade);
+    int count_erro = 0;
+    while ((verificar_condicao(idade)) == 1 && count_erro <= 3) {
+        if (count_erro < 3) {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(17);
+            printf("Informe a idade do animal\n");
+            printf(">>");
+            scanf(" %[^\n]", idade);
+            str_end(idade);
+            count_erro++;
+        } else {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(18);
+            print_msg(21);
+            pressiona_enter();
+            return;
+        }
+    }
+    if (count_erro <= 3) {
+        strcpy(animal->idade, idade);
+        str_end(animal->idade);
+        cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+        print_msg(25);
+        pressiona_enter();
+    }
+}
+
+void editar_especie_animal(Animais* animal){
+    cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+    printf("Espécie atual: %s\n", animal->especie);
+    printf("Digite a nova espécie:\n");
+    condicao_especie();
+    char especie[N];
+    printf(">>");
+    scanf(" %[^\n]", especie);
+    str_end(especie);
+    int count_erro = 0;
+    while ((verificar_nome(especie)) == 1 && count_erro <= 3) {
+        if (count_erro < 3) {
+    cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(13);
+            printf("Informe a espécie do animal\n");
+            condicao_especie();
+            printf(">>");
+            scanf(" %[^\n]", especie);
+            str_end(especie);
+            count_erro++;
+        } else {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(14);
+            print_msg(21);
+            pressiona_enter();
+            return;
+        }
+    }
+    if (count_erro <= 3) {
+        strcpy(animal->especie, especie);
+        str_end(animal->especie);
+        capitalizeNames(animal->especie);
+        cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+        print_msg(23);
+        pressiona_enter();
+    }
+}
+
+void editar_condicao_animal(Animais* animal){
+    cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+    printf("Condição atual: %s\n", animal->condicao);
+    printf("Digite a nova condição:\n");
+    condicao_condicao();
+    char condicao[N];
+    printf(">>");
+    scanf(" %[^\n]", condicao);
+    str_end(condicao);
+    int count_erro = 0;
+    while ((verificar_condicao(condicao)) == 1 && count_erro <= 3) {
+        if (count_erro < 3) {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(15);
+            printf("Informe a condição do animal\n");
+            condicao_condicao();
+            printf(">>");
+            scanf(" %[^\n]", condicao);
+            str_end(condicao);
+            count_erro++;
+        } else {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(16);
+            print_msg(21);
+            pressiona_enter();
+            return;
+        }
+    }
+    if (count_erro <= 3) {
+        strcpy(animal->condicao, condicao);
+        str_end(animal->condicao);
+        capitalizeNames(animal->condicao);
+        cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+        print_msg(24);
+        pressiona_enter();
+    }
+}

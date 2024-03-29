@@ -1,5 +1,24 @@
 #include"funcoes.h"
 
+void cabecalho(char *pagina, char* titulo){
+    limpa_tela();
+    printf("==========================================================================================\n");
+    printf("\t\t\t%s\t\t\t%s\n", pagina, titulo);
+    printf("==========================================================================================\n\n");
+}
+
+void menu(void){
+    limpa_tela();
+    pedros_vet();
+    printf("1 - Adicionar tutor\n");
+    printf("2 - Remover tutor\n");
+    printf("3 - Adicionar animal\n");
+    printf("4 - Remover animal\n");
+    printf("5 - Editar informa%c%co de animal\n",135, 198);
+    printf("6 - Buscar animal por nome\n");
+    printf("7 - Listar tutores e seus animais\n");
+    printf("8 - Sair\n");
+}
 
 int verificar_nome(char * nome){
     int nomeend = (int)strlen(nome);
@@ -93,6 +112,16 @@ int verificar_opcao(char* opcao){
     return 0;
 }
 
+int verificar_opcao2(char* opcao){
+    if(strlen(opcao) != 1){
+        return 1;
+    }
+    if(opcao[0] < '0' || opcao[0] > '6'){
+        return 1;
+    }
+    return 0;
+}
+
 void str_end(char* str){
     int strend = (int)strlen(str);
     str[strend] = '\0';
@@ -130,6 +159,16 @@ int comparenames(char* str1, char* str2){
     return strncmp(str1, str2, strlen(str2));
 }
 
+void menu_editar_animal(){
+    printf("\n\n");
+    printf("1 - Editar nome\n");
+    printf("2 - Editar esp%ccie\n",130);
+    printf("3 - Editar condi%c%co\n",135,198);
+    printf("4 - Editar idade\n");
+    printf("5 - Editar tutor\n");
+    printf("6 - Voltar\n");
+}
+
 void print_msg(int cod_msg){
     // mensagem limpa:
     if(cod_msg == 0) printf("\n\n");
@@ -154,6 +193,13 @@ void print_msg(int cod_msg){
     else if(cod_msg == 17) printf(TXT_yellow"\nInforme uma idade v%clida.\n"TXT_reset,160);
     else if(cod_msg == 18) printf(TXT_red"\nIdade inv%clida.\n"TXT_reset,160);
     else if(cod_msg == 19) printf(TXT_yellow"\nLista vazia.\n"TXT_reset);
+    else if(cod_msg == 20) printf(TXT_red"\nOp%c%co inv%clida.\n"TXT_reset,135, 198, 160);
+    else if(cod_msg == 21) printf(TXT_red"\nVoltando ao menu principal\n"TXT_reset);
+    else if(cod_msg == 22) printf(TXT_green"\nNome alterado com sucesso\n"TXT_reset);
+    else if(cod_msg == 23) printf(TXT_green"\nEsp%ccie alterada com sucesso\n"TXT_reset,130);
+    else if(cod_msg == 24) printf(TXT_green"\nCondi%c%co alterada com sucesso\n"TXT_reset,135,198);
+    else if(cod_msg == 25) printf(TXT_green"\nIdade alterada com sucesso\n"TXT_reset);
+    else if(cod_msg == 26) printf(TXT_green"\nTutor alterado com sucesso\n"TXT_reset);
 }
 
 void condicao_nome_add(){

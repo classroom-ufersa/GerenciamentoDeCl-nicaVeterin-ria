@@ -1,8 +1,6 @@
 #include"../TADs/sistema/sistema.c"
 
 
-
-
 int main(void){
     Tutores* lista_tutores=cria_tutores();
     lista_tutores = carregar_dados(lista_tutores);
@@ -35,7 +33,7 @@ int main(void){
                 remover_animal(lista_tutores);
                 break;
             case '5':
-                //editar_animal(lista_tutores);
+                editar_animal(lista_tutores);
                 break;
             case '6':
                 buscar_animal(lista_tutores);

@@ -98,3 +98,48 @@ void libera_tutores(Tutores* lista_tutor){
         a = temp;
     }
 }
+
+void editar_tutor_animal(Tutores *lista_tutores, Tutores *tutor_atual, Animais *animal){
+    cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+    printf("Tutor atual: %s\n", tutor_atual->nome);
+    printf("Digite o nome do novo tutor:\n");
+    char nome[N];
+    printf(">>");
+    scanf(" %[^\n]", nome);
+    str_end(nome);
+    int count_erro = 0;
+    while ((verificar_nome(nome)) == 1 && count_erro <= 3) {
+        if (count_erro < 3) {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(2);
+            printf("Informe o nome do tutor\n");
+            condicao_nome_add();
+            printf(">>");
+            scanf(" %[^\n]", nome);
+            str_end(nome);
+            count_erro++;
+        } else {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(5);
+            print_msg(21);
+            pressiona_enter();
+            return;
+        }
+    }
+    if (count_erro <= 3) {
+        Tutores* tutor_novo = cria_tutores();
+        tutor_novo = buscar_tutor(lista_tutores, nome);
+        if (tutor_novo == NULL) {
+            cabecalho("Remover animal", "PEDROS VET");
+            print_msg(8);
+            print_msg(21);
+            pressiona_enter();
+            return;
+        }
+        tutor_novo->lista_animais = insere_animais(tutor_novo->lista_animais, animal->nome, animal->especie, animal->idade, animal->condicao);
+        tutor_atual->lista_animais = remove_animal(tutor_atual->lista_animais, animal->nome);
+        cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+        print_msg(26);
+        pressiona_enter();
+    }
+}

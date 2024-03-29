@@ -11,6 +11,9 @@
 #define TXT_reset "\x1b[0m"
 #define N 81
 
+void cabecalho(char *pagina, char *titulo);
+
+void menu(void);
 
 int verificar_nome(char * nome);
 
@@ -21,6 +24,8 @@ int verificar_documento(char* documento);
 int verificar_condicao(char* condicao);
 
 int verificar_opcao(char* opcao);
+
+int verificar_opcao2(char* opcao);
 
 void str_end(char* str);
 

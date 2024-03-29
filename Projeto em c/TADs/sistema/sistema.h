@@ -1,9 +1,5 @@
 #include"../tutores/tutores.c"
 
-void cabecalho(char *pagina, char *titulo);
-
-void menu(void);
-
 void adicionar_tutor(Tutores* lista_tutores);
 
 void remover_tutor(Tutores* lista_tutores);

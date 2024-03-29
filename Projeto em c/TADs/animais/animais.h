@@ -17,6 +17,12 @@ int vazia_animais(Animais* lista_animal);
 
 void libera_animais(Animais* lista_animal);
 
+void imprimir_animal(Animais* animal);
 
+void editar_nome_animal(Animais* animal);
 
+void editar_idade_animal(Animais* animal);
 
+void editar_especie_animal(Animais* animal);
+
+void editar_condicao_animal(Animais* animal);

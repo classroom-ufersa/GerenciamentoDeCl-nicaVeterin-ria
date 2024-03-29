@@ -1,25 +1,5 @@
 #include"sistema.h"
 
-void cabecalho(char *pagina, char* titulo){
-    limpa_tela();
-    printf("==========================================================================================\n");
-    printf("\t\t\t%s\t\t\t%s\n", pagina, titulo);
-    printf("==========================================================================================\n\n");
-}
-
-void menu(void){
-    limpa_tela();
-    pedros_vet();
-    printf("1 - Adicionar tutor\n");
-    printf("2 - Remover tutor\n");
-    printf("3 - Adicionar animal\n");
-    printf("4 - Remover animal\n");
-    printf("5 - Editar informa%c%co de animal\n",135, 198);
-    printf("6 - Buscar animal por nome\n");
-    printf("7 - Listar tutores e seus animais\n");
-    printf("8 - Sair\n");
-}
-
 void adicionar_tutor(Tutores* lista_tutores){
     char nome[N];
     cabecalho("Adicionar tutor", "PEDROS VET");
@@ -43,6 +23,7 @@ void adicionar_tutor(Tutores* lista_tutores){
         else{
             cabecalho("Adicionar tutor", "PEDROS VET");
             print_msg(5);
+            print_msg(21);
             pressiona_enter();
             return;
         }
@@ -69,6 +50,7 @@ void adicionar_tutor(Tutores* lista_tutores){
         else{
             cabecalho("Adicionar tutor", "PEDROS VET");
             print_msg(6);
+            print_msg(21);
             pressiona_enter();
             return;
         }
@@ -95,6 +77,7 @@ void adicionar_tutor(Tutores* lista_tutores){
         else{
             cabecalho("Adicionar tutor", "PEDROS VET");
             print_msg(7);
+            print_msg(21);
             pressiona_enter();
             return;
         }
@@ -126,6 +109,7 @@ void remover_tutor(Tutores* lista_tutores){
         else{
             cabecalho("Remover tutor", "PEDROS VET");
             print_msg(5);
+            print_msg(21);
             pressiona_enter();
             return;
         }
@@ -156,6 +140,7 @@ void adicionar_animal(Tutores* lista_tutores) {
         } else {
             cabecalho("Adicionar animal", "PEDROS VET");
             print_msg(5);
+            print_msg(21);
             pressiona_enter(); 
             return;
         }
@@ -164,6 +149,7 @@ void adicionar_animal(Tutores* lista_tutores) {
     if (tutor == NULL) {
         cabecalho("Adicionar animal", "PEDROS VET");
         print_msg(8);
+        print_msg(21);
         pressiona_enter();
         return;
     }
@@ -188,6 +174,7 @@ void adicionar_animal(Tutores* lista_tutores) {
         } else {
             cabecalho("Adicionar animal", "PEDROS VET");
             print_msg(5);
+            print_msg(21);
             pressiona_enter();
             return;
         }
@@ -211,6 +198,7 @@ void adicionar_animal(Tutores* lista_tutores) {
         } else {
             cabecalho("Adicionar animal", "PEDROS VET");
             print_msg(18);
+            print_msg(21);
             pressiona_enter();
             return;
         }
@@ -236,6 +224,7 @@ void adicionar_animal(Tutores* lista_tutores) {
         } else {
             cabecalho("Adicionar animal", "PEDROS VET");
             print_msg(14);
+            print_msg(21);
             pressiona_enter();
             return;
         }
@@ -261,6 +250,7 @@ void adicionar_animal(Tutores* lista_tutores) {
         } else {
             cabecalho("Adicionar animal", "PEDROS VET");
             print_msg(16);
+            print_msg(21);
             pressiona_enter();
             return;
         }
@@ -291,6 +281,7 @@ void remover_animal(Tutores* lista_tutores){
         } else {
             cabecalho("Remover animal", "PEDROS VET");
             print_msg(5);
+            print_msg(21);
             pressiona_enter();
             return;
         }
@@ -316,6 +307,7 @@ void remover_animal(Tutores* lista_tutores){
         } else {
             cabecalho("Remover animal", "PEDROS VET");
             print_msg(5);
+            print_msg(21);
             pressiona_enter();
             return;
         }
@@ -324,11 +316,138 @@ void remover_animal(Tutores* lista_tutores){
     if (tutor == NULL) {
         cabecalho("Remover animal", "PEDROS VET");
         print_msg(8);
+        print_msg(21);
         pressiona_enter();
         return;
     }
     tutor->lista_animais = remove_animal(tutor->lista_animais, nome_animal);
     escrever_dados(lista_tutores);
+}
+
+void editar_animal(Tutores* lista_tutores){
+    char nome_tutor[N];
+    cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+    printf("Informe o nome do tutor\n");
+    condicao_nome_busca();
+    printf(">>");
+    scanf(" %[^\n]", nome_tutor);
+    str_end(nome_tutor);
+    int count_erro = 0;
+    while ((verificar_nome(nome_tutor)) == 1 && count_erro <= 3) {
+        if (count_erro < 3) {
+            cabecalho("Editar informa\x87\xc6o de animal","PEDROS VET");
+            print_msg(2);
+            printf("Informe o nome do tutor\n");
+            condicao_nome_busca();
+            printf(">>");
+            scanf(" %[^\n]", nome_tutor);
+            str_end(nome_tutor);
+            count_erro++;
+        } else {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(5);
+            print_msg(21);
+            pressiona_enter();
+            return;
+        }
+    }
+    Tutores* tutor = buscar_tutor(lista_tutores, nome_tutor);
+    if (tutor == NULL) {
+        cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+        print_msg(8);
+        print_msg(21);
+        pressiona_enter();
+        return;
+    }
+    char nome_animal[N];
+    cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+    printf("Informe o nome do animal\n");
+    condicao_nome_busca();
+    printf(">>");
+    scanf(" %[^\n]", nome_animal);
+    str_end(nome_animal);
+    count_erro = 0;
+    while ((verificar_nome(nome_animal)) == 1 && count_erro <= 3) {
+        if (count_erro < 3) {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(2);
+            printf("Informe o nome do animal\n");
+            condicao_nome_busca();
+            printf(">>");
+            scanf(" %[^\n]", nome_animal);
+            str_end(nome_animal);
+            count_erro++;
+        } else {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(5);
+            print_msg(21);
+            pressiona_enter();
+            return;
+        }
+    }
+    Animais* animal = busca_animal(tutor->lista_animais, nome_animal);
+    if (animal == NULL) {
+        cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+        print_msg(9);
+        print_msg(21);
+        pressiona_enter();
+        return;
+    }
+    cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+    printf("Nome do tutor: %s\n",tutor->nome);
+    imprimir_animal(animal);
+    menu_editar_animal();
+    printf(">>");
+    char opcao[N];
+    scanf(" %[^\n]", opcao);
+    str_end(opcao);
+    count_erro = 0;
+    while ((verificar_opcao2(opcao)) == 1 && count_erro <= 3) {
+        if (count_erro < 3) {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            printf("Nome do tutor: %s\n",tutor->nome);
+            imprimir_animal(animal);
+            menu_editar_animal();
+            print_msg(1);
+            printf(">>");
+            scanf(" %[^\n]", opcao);
+            str_end(opcao);
+            count_erro++;
+        } else {
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(20);
+            print_msg(21);
+            pressiona_enter();
+            return;
+        }
+    }
+    switch (opcao[0]) {
+        case '1':
+            editar_nome_animal(animal);
+            break;
+        case '2':
+            editar_idade_animal(animal);
+            break;
+        case '3':
+            editar_especie_animal(animal);
+            break;
+        case '4':
+            editar_condicao_animal(animal);
+            break;
+        case '5':
+            editar_tutor_animal(lista_tutores, tutor, animal);
+            break;
+        case '6':
+            print_msg(21);
+            break;
+        default:
+            cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
+            print_msg(20);
+            print_msg(21);
+            pressiona_enter();
+            return;
+    }
+    pressiona_enter();
 }
 
 void buscar_animal(Tutores* lista_tutores){
@@ -353,35 +472,35 @@ void buscar_animal(Tutores* lista_tutores){
         } else {
             cabecalho("Buscar animal", "PEDROS VET");
             print_msg(5);
+            print_msg(21);
             pressiona_enter();
             return;
         }
     }
-    Tutores* temp1 = lista_tutores;
-    Animais* temp2;
-    if (temp1 == NULL) {
+    Tutores* tutor = lista_tutores;
+    Animais* animal;
+    if (tutor == NULL) {
         cabecalho("Buscar animal", "PEDROS VET");
         print_msg(19);
+        print_msg(21);
         pressiona_enter();
     }
     else {
-        while(temp1 != NULL){
-            temp2 = busca_animal(temp1->lista_animais, nome_animal);
-            if(temp2 != NULL){
+        while(tutor != NULL){
+            animal = busca_animal(tutor->lista_animais, nome_animal);
+            if(animal != NULL){
                 cabecalho("Buscar animal", "PEDROS VET");
-                printf("Nome do tutor: %s\n",temp1->nome);
-                printf("Nome: %s\n",temp2->nome);
-                printf("Idade: %s\n",temp2->idade);
-                printf("Esp%ccie: %s\n",130,temp2->especie);
-                printf("Condi%c%co: %s\n",135,198,temp2->condicao);
+                printf("Nome do tutor: %s\n",tutor->nome);
+                imprimir_animal(animal);
                 pressiona_enter();
                 return;
             }
-            temp1 = temp1->prox;
+            tutor = tutor->prox;
         }
-        if (temp1 == NULL) {
+        if (tutor == NULL) {
             cabecalho("Buscar animal", "PEDROS VET");
             print_msg(9);
+            print_msg(21);
             pressiona_enter();
         }
     }
@@ -391,6 +510,7 @@ void listar_animais_tutor(Tutores* lista_tutores){
     cabecalho("Listar tutores e seus animais", "PEDROS VET");
     if(lista_tutores == NULL){
         print_msg(19);
+        print_msg(21);
         pressiona_enter();
     }
     else{
