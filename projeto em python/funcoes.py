@@ -28,25 +28,24 @@ def escolhe_opcao_menu(lista_animais, lista_tutores):
         opcao_escolhida = int(input('\nEscolha uma opção: '))
 
         if opcao_escolhida == 1:
-            tutores.adiciona_tutores(lista_tutores, lista_animais)
+            tutores.criar_tutor(lista_tutores)
             volta_ao_menu()
         elif opcao_escolhida == 2:
             tutores.remove_tutor(lista_tutores)
             volta_ao_menu()
         elif opcao_escolhida == 3:
-            animais.adiciona_animais(lista_animais)
+            animais.adiciona_animal(lista_tutores)
             volta_ao_menu()
         elif opcao_escolhida == 4:
-            animais.remove_animal(lista_animais)
+            animais.remove_animal(lista_tutores)
             volta_ao_menu()
         elif opcao_escolhida == 5:
-            animais.editar_animal(lista_animais)
-            volta_ao_menu()
+            animais.edita_animal(lista_tutores)
         elif opcao_escolhida == 6:
             animais.busca_animal(lista_animais)
             volta_ao_menu()
         elif opcao_escolhida == 7:
-            tutores.mostra_lista_de_tutores(lista_tutores)
+            tutores.mostra_arquivo()
             volta_ao_menu()
         elif opcao_escolhida == 8:
             finalizar_programa()
@@ -57,7 +56,7 @@ def escolhe_opcao_menu(lista_animais, lista_tutores):
         opcao_invalida()
     
 
-def adiciona_subtitulo(texto):
+def exibe_subtitulo(texto):
     limpa_tela()
     linha = '=' * (len(texto))
     print(linha)
@@ -95,6 +94,3 @@ def limpa_tela():
 def finalizar_programa():
     limpa_tela()
     print('Saindo...')
-
-
-

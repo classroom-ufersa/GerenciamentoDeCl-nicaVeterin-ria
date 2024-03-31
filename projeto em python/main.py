@@ -5,8 +5,8 @@ import funcoes
 
 def main():
     funcoes.limpa_tela()
-    lista_animais = animais.listar_animais()
-    lista_tutores = tutores.listar_tutores()
+    lista_animais = animais.listar_animais('tutores.txt')
+    lista_tutores = tutores.listar_tutores('tutores.txt')
 
     funcoes.exibe_logo()
     funcoes.exibe_opçao()
@@ -14,3 +14,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    

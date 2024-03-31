@@ -1,104 +1,116 @@
-import animais
 import funcoes
 import main
 
 class Tutores:
-    def __init__(self, nome, contato, documento, animais_tutor = [{}]):
+    def __init__(self, nome, contato, documento, animais_tutor=None):
         self.nome = nome
         self.contato = contato
         self.documento = documento
-        self.animais_tutor = animais_tutor
+        if animais_tutor is None:
+            self.animais_tutor = []
+        else:
+            self.animais_tutor = animais_tutor
 
     def __str__(self):
-        return(f'{self.nome} | {self.contato} | {self.documento} | {self.animais_tutor}')
+        animais_str = "\n\t".join(str(animal) for animal in self.animais_tutor)
+        return f'Tutor | Nome: {self.nome} | Contato: {self.contato} | Documento: {self.documento}\n\tAnimais do Tutor:\n\t{animais_str}'
     
+def listar_tutores(nome_arquivo):
+    from animais import Animais
+    tutores = []
 
-def listar_tutores():
-    arquivo = open('tutores.txt', 'r')
+    with open(nome_arquivo, 'r') as arquivo:
+        nome = None
+        contato = None
+        documento = None
+        animais_tutor = []
+        for linha in arquivo:
+            linha = linha.strip()
+            if linha.startswith("Tutor"):
+                if nome and contato and documento:
+                    tutores.append(Tutores(nome, contato, documento, animais_tutor))
+                nome, contato, documento = linha.split(" | ")[1:]
+                nome = nome.split(":")[1].strip()
+                contato = contato.split(":")[1].strip()
+                documento = documento.split(":")[1].strip()
+                animais_tutor = []
+            elif linha.startswith("Nome:"):
+                nome_animal = linha.split("Nome: ")[1].split(" |")[0].strip()
+                idade = linha.split("Idade: ")[1].split(" |")[0].strip()
+                especie = linha.split("Especie: ")[1].split(" |")[0].strip()
+                saude = linha.split("Saude: ")[1].strip()
+                animal = Animais(nome_animal, idade, especie, saude)
+                animais_tutor.append(animal)
+        if nome and contato and documento:
+            tutores.append(Tutores(nome, contato, documento, animais_tutor))
 
-    linhas = arquivo.readlines()
-    lista_tutores = []
+    tutores.sort(key=lambda x: x.nome)
+    return tutores
 
-    for linha in linhas:
-        nome, contato, documento, animais_tutor = linha.strip().split('/')
-        tutor = Tutores(nome.title().strip(), contato.strip(), documento.strip(), animais_tutor.strip())
-        lista_tutores.append(tutor)
+def criar_tutor(tutores):
+    from animais import Animais
 
-    arquivo.close()
+    funcoes.exibe_subtitulo('Adicionando Tutor')
+    nome = input("Nome do tutor: ")
+    contato = input("Contato do tutor: ")
+    documento = input("Documento do tutor: ")
+    print()
 
-    return lista_tutores
-
-def salva_arquivo_tutores(lista):
-    arquivo = open('tutores.txt', 'w')
-    lista.sort(key=lambda x: x.nome)
-    for tutor in lista:
-        arquivo.write(f'{tutor.nome} / {tutor.contato} / {tutor.documento} / {tutor.animais_tutor}\n')
-
-def adiciona_tutores(lista1, lista2):
-    funcoes.limpa_tela()
-    funcoes.adiciona_subtitulo('Dados do novo tutor')
-
-    nome = str(input('Informe o nome do Tutor: '))
-    contato = str(input('Informe o contato do tutor: '))
-    documento = str(input('Informe o documento do tutor: '))
-    funcoes.limpa_tela()
-
-    animais_tutor = []  
-
+    animais = []
     while True:
-        animais.mostra_lista_de_animais(lista2)
-        animais_tutor_nome = input('\nInforme o nome do animal que esse tutor será responsável (ou digite "fim" para terminar): ')
-        if animais_tutor_nome.lower() == 'fim':
-            break  
-        animais_tutor_nome = animais_tutor_nome.title()
+        funcoes.exibe_subtitulo('Adicionando o(s) Animal(ais) do Tutor')
+        nome_animal = input('Informe o nome do animal que você deseja adicionar: ')
+        idade_animal = input('Informe a idade do animal: ')
+        especie_animal = input('Informe a espécie do animal: ')
+        saude_animal = input('Informe a saúde do animal: ')
 
-        posicao = funcoes.busca_nome(lista2, animais_tutor_nome)
+        animal = Animais(nome_animal.title(), idade_animal.title(), especie_animal.title(), saude_animal.title())
+        animais.append(animal)
+        animais.sort(key=lambda x: x.nome)
 
-        if posicao != -1:
-            tutor_animal = lista2[posicao]
-            animais_tutor.append(
-                {
-                    'Nome': tutor_animal.nome, 
-                    'Saude': tutor_animal.saude
-                }
-            )
-        else:
-            print('Animal não encontrado\n')
-
-    tutor = Tutores(nome.title(), contato.strip(), documento.strip(), animais_tutor)
-    lista1.append(tutor)
-
-    salva_arquivo_tutores(lista1)
-    funcoes.volta_ao_menu()
-
-
-def mostra_lista_de_tutores(lista):
-    funcoes.limpa_tela()
-    lista.sort(key=lambda x: x.nome)
-    for tutor in lista:
-        print(f'Nome: {tutor.nome:<20} Contato: {tutor.contato:<20} Documento: {tutor.documento}')
-        print('Animais:')
-        for chave, animal in tutor.animais_tutor:
-            print(animal)
-            print(f'{chave}: {animal}')
-
-def remove_tutor(lista):
-    funcoes.limpa_tela()
-    mostra_lista_de_tutores(lista)
-    nome = str(input('\nInforme o nome do tutor a ser removido: '))
-    nome = nome.title()
-
-    posicao = funcoes.busca_nome(lista, nome)
-
-    while posicao == -1:
         funcoes.limpa_tela()
-        mostra_lista_de_tutores(lista)
-        print('\nTutor não encontrado!\n')
-        nome = str(input('Informe o nome de um tutor presente na lista: '))
-        nome = nome.title()
-        posicao = funcoes.busca_nome(lista, nome)
+        print('Deseja adicionar outro animal?\n')
+        para = input('Digite (S) para continuar ou Digite (N) para sair: ')
+        para = para.upper()
+        if para == 'S':
+            continue
+        elif para == 'N':
+            break
+        else:
+            while para != 'S' and para != 'N':
+                funcoes.limpa_tela()
+                print('Ops! parece que você digitou errado\n')
+                para = input('Digite (S) para continuar ou Digite (N) para sair: ')
+                para = para.upper()
 
-    del lista[posicao]
+    novo_tutor = Tutores(nome.title(), contato.title(), documento.title(), animais)
+    tutores.append(novo_tutor)
+    tutores.sort(key=lambda x: x.nome)
 
-    salva_arquivo_tutores(lista)
-    funcoes.volta_ao_menu()
+    salva_arquivo(tutores)
+
+def remove_tutor(tutores):
+    from funcoes import busca_nome
+
+    funcoes.exibe_subtitulo('Removendo um Tutor da Clínica')
+    nome_tutor = input('Informe o nome do tutor que você deseja remover: ')
+    nome_tutor = nome_tutor.title()
+    indice_tutor = busca_nome(tutores, nome_tutor)
+
+    if indice_tutor != -1:
+        tutores.pop(indice_tutor)
+        print(f'O tutor {nome_tutor} foi removido com sucesso!')
+        salva_arquivo(tutores)
+    else:
+        print('Tutor não encontrado')
+
+def salva_arquivo(tutores):
+    with open('tutores.txt', 'w') as arquivo:
+        for tutor in tutores:
+            arquivo.write(str(tutor) + '\n\n')
+
+def mostra_arquivo():
+    funcoes.exibe_subtitulo('Lista de Tutores Cadastrados')
+    with open("tutores.txt", "r") as arquivo:
+        for linha in arquivo:
+            print(linha.strip())
