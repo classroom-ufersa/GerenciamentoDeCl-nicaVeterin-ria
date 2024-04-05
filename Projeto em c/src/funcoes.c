@@ -1,4 +1,4 @@
-#include"funcoes.h"
+#include"../include/funcoes.h"
 
 void cabecalho(char *pagina, char* titulo){
     limpa_tela();
@@ -104,6 +104,9 @@ int verificar_condicao(char* condicao){
 
 int verificar_opcao(char* opcao){
     if(strlen(opcao) != 1){
+        return 1;
+    }
+    if(opcao[0] == ' '){
         return 1;
     }
     if(opcao[0] < '0' || opcao[0] > '8'){

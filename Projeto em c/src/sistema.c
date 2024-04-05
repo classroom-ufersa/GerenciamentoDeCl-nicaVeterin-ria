@@ -1,4 +1,4 @@
-#include"sistema.h"
+#include"../include/sistema.h"
 
 void adicionar_tutor(Tutores* lista_tutores){
     char nome[N];
@@ -548,9 +548,9 @@ void liberar_memoria(Tutores* lista_tutores){
 }
 
 Tutores* carregar_dados(Tutores* lista_tutores){
-    FILE * arquivo = fopen("arquivo.txt","r");
+    FILE * arquivo = fopen("../Files/arquivo.txt","r");
     if(arquivo == NULL){
-        arquivo = fopen("arquivo.txt","w");
+        arquivo = fopen("../Files/arquivo.txt","w");
         if(arquivo == NULL){
             print_msg(11);
             print_msg(12);
@@ -569,7 +569,7 @@ Tutores* carregar_dados(Tutores* lista_tutores){
                 lista_tutores = insere_tutores(lista_tutores,st1,st2,st3);
                 strcpy(ultimo_tutor,st1);
                 str_end(ultimo_tutor);      
-            }
+            }   
             else{
                 Tutores* tutor = buscar_tutor(lista_tutores, ultimo_tutor);
                 if (tutor == NULL) {
@@ -586,7 +586,7 @@ Tutores* carregar_dados(Tutores* lista_tutores){
 }
 
 void escrever_dados(Tutores* lista_tutores){
-    FILE * arquivo = fopen("arquivo.txt","w");
+    FILE * arquivo = fopen("../Files/arquivo.txt","w");
     if(arquivo == NULL){
         print_msg(11);
         print_msg(12);

@@ -1,4 +1,4 @@
-#include"animais.h"
+#include"../include/animais.h"
 
 
 struct animais{
