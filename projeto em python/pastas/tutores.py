@@ -1,6 +1,3 @@
-import funcoes
-import main
-
 class Tutores:
     def __init__(self, nome, contato, documento, animais_tutor=None):
         self.nome = nome
@@ -15,11 +12,11 @@ class Tutores:
         animais_str = "\n\t".join(str(animal) for animal in self.animais_tutor)
         return f'Tutor | Nome: {self.nome} | Contato: {self.contato} | Documento: {self.documento}\n\tAnimais do Tutor:\n\t{animais_str}'
     
-def listar_tutores(nome_arquivo):
-    from animais import Animais
+def listar_tutores():
+    from pastas.animais import Animais
     tutores = []
 
-    with open(nome_arquivo, 'r') as arquivo:
+    with open(r'C:\Users\peluc\OneDrive\Área de Trabalho\Gerenciamento_de_Clinica_Veterinaria\projeto em python\arquivo\tutores.txt', 'r') as arquivo:
         nome = None
         contato = None
         documento = None
@@ -48,9 +45,10 @@ def listar_tutores(nome_arquivo):
     return tutores
 
 def criar_tutor(tutores):
-    from animais import Animais
+    from pastas.animais import Animais
+    from pastas.funcoes import exibe_subtitulo, limpa_tela
 
-    funcoes.exibe_subtitulo('Adicionando Tutor')
+    exibe_subtitulo('Adicionando Tutor')
     nome = input("Nome do tutor: ")
     contato = input("Contato do tutor: ")
     documento = input("Documento do tutor: ")
@@ -58,7 +56,7 @@ def criar_tutor(tutores):
 
     animais = []
     while True:
-        funcoes.exibe_subtitulo('Adicionando o(s) Animal(ais) do Tutor')
+        exibe_subtitulo('Adicionando o(s) Animal(ais) do Tutor')
         nome_animal = input('Informe o nome do animal que você deseja adicionar: ')
         idade_animal = input('Informe a idade do animal: ')
         especie_animal = input('Informe a espécie do animal: ')
@@ -68,7 +66,7 @@ def criar_tutor(tutores):
         animais.append(animal)
         animais.sort(key=lambda x: x.nome)
 
-        funcoes.limpa_tela()
+        limpa_tela()
         print('Deseja adicionar outro animal?\n')
         para = input('Digite (S) para continuar ou Digite (N) para sair: ')
         para = para.upper()
@@ -78,7 +76,7 @@ def criar_tutor(tutores):
             break
         else:
             while para != 'S' and para != 'N':
-                funcoes.limpa_tela()
+                limpa_tela()
                 print('Ops! parece que você digitou errado\n')
                 para = input('Digite (S) para continuar ou Digite (N) para sair: ')
                 para = para.upper()
@@ -90,9 +88,9 @@ def criar_tutor(tutores):
     salva_arquivo(tutores)
 
 def remove_tutor(tutores):
-    from funcoes import busca_nome
+    from pastas.funcoes import busca_nome, exibe_subtitulo
 
-    funcoes.exibe_subtitulo('Removendo um Tutor da Clínica')
+    exibe_subtitulo('Removendo um Tutor da Clínica')
     nome_tutor = input('Informe o nome do tutor que você deseja remover: ')
     nome_tutor = nome_tutor.title()
     indice_tutor = busca_nome(tutores, nome_tutor)
@@ -105,12 +103,14 @@ def remove_tutor(tutores):
         print('Tutor não encontrado')
 
 def salva_arquivo(tutores):
-    with open('tutores.txt', 'w') as arquivo:
+    with open(r'C:\Users\peluc\OneDrive\Área de Trabalho\Gerenciamento_de_Clinica_Veterinaria\projeto em python\arquivo\tutores.txt', 'w') as arquivo:
         for tutor in tutores:
             arquivo.write(str(tutor) + '\n\n')
 
 def mostra_arquivo():
-    funcoes.exibe_subtitulo('Lista de Tutores Cadastrados')
-    with open("tutores.txt", "r") as arquivo:
+    from pastas.funcoes import exibe_subtitulo
+
+    exibe_subtitulo('Lista de Tutores Cadastrados')
+    with open(r'C:\Users\peluc\OneDrive\Área de Trabalho\Gerenciamento_de_Clinica_Veterinaria\projeto em python\arquivo\tutores.txt', 'r') as arquivo:
         for linha in arquivo:
             print(linha.strip())

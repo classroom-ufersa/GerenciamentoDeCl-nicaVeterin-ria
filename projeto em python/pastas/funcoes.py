@@ -1,8 +1,3 @@
-import os
-import main
-import animais
-import tutores
-
 def exibe_logo():
     print('''
         ██████╗░███████╗██████╗░██████╗░░█████╗░░██████╗     ██╗░░░██╗███████╗████████╗
@@ -24,28 +19,31 @@ def exibe_opçao():
     print('8. Sair')
 
 def escolhe_opcao_menu(lista_animais, lista_tutores):
+    from pastas.animais import adiciona_animal, remove_animal, edita_animal, busca_animal
+    from pastas.tutores import criar_tutor, remove_tutor, mostra_arquivo
+
     try:
         opcao_escolhida = int(input('\nEscolha uma opção: '))
 
         if opcao_escolhida == 1:
-            tutores.criar_tutor(lista_tutores)
+            criar_tutor(lista_tutores)
             volta_ao_menu()
         elif opcao_escolhida == 2:
-            tutores.remove_tutor(lista_tutores)
+            remove_tutor(lista_tutores)
             volta_ao_menu()
         elif opcao_escolhida == 3:
-            animais.adiciona_animal(lista_tutores)
+            adiciona_animal(lista_tutores)
             volta_ao_menu()
         elif opcao_escolhida == 4:
-            animais.remove_animal(lista_tutores)
+            remove_animal(lista_tutores)
             volta_ao_menu()
         elif opcao_escolhida == 5:
-            animais.edita_animal(lista_tutores)
+            edita_animal(lista_tutores)
         elif opcao_escolhida == 6:
-            animais.busca_animal(lista_animais)
+            busca_animal(lista_animais)
             volta_ao_menu()
         elif opcao_escolhida == 7:
-            tutores.mostra_arquivo()
+            mostra_arquivo()
             volta_ao_menu()
         elif opcao_escolhida == 8:
             finalizar_programa()
@@ -66,8 +64,10 @@ def exibe_subtitulo(texto):
 
 
 def volta_ao_menu():
+    from main import main
+
     input('\nPrecione ENTER para voltar ao menu')
-    main.main()
+    main()
 
 def opcao_invalida():
     print('Opção inválida!\n')
@@ -89,7 +89,11 @@ def busca_nome(lista, nome):
     return -1
 
 def limpa_tela():
-    os.system('cls')
+    import os
+    if os.name == 'nt': 
+        os.system('cls')
+    else:
+        os.system('clear')
 
 def finalizar_programa():
     limpa_tela()
