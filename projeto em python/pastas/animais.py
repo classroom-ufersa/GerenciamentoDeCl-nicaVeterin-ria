@@ -1,14 +1,35 @@
 class Animais:
     def __init__(self, nome, idade, especie, saude):
+        '''
+        Inicializa um objeto Animais com as informações fornecidas.
+
+        Args:
+        nome (str): O nome do animal.
+        idade (str): A idade do animal.
+        especie (str): A espécie do animal.
+        saude (str): A condição de saúde do animal.
+        '''
         self.nome = nome
         self.idade = idade
         self.especie = especie
         self.saude = saude
 
     def __str__(self):
+        '''
+        Retorna uma representação em string do objeto Animais.
+
+        Retorna:
+        str: Uma string contendo as informações do animal.
+        '''
         return(f'Nome: {self.nome} | Idade: {self.idade} | Especie: {self.especie} | Saude: {self.saude}')
 
 def listar_animais():
+    '''
+    Lê o arquivo 'tutores.txt' e extrai informações sobre os animais registrados, retornando uma lista de objetos Animais.
+
+    Retorna:
+    list: Uma lista de objetos Animais, representando os animais registrados.
+    '''
     with open(r'C:\Users\peluc\OneDrive\Área de Trabalho\Gerenciamento_de_Clinica_Veterinaria\projeto em python\arquivo\tutores.txt', 'r') as arquivo:
         linhas = arquivo.readlines()
         lista_animais = []
@@ -27,6 +48,15 @@ def listar_animais():
     return lista_animais
 
 def adiciona_animal(tutores):
+    '''
+    Adiciona um novo animal ao tutor especificado.
+
+    Args:
+    tutores (list): Uma lista de objetos Tutores representando os tutores.
+
+    Returns:
+    None
+    '''
     from pastas.funcoes import busca_nome, exibe_subtitulo, limpa_tela
     from pastas.tutores import salva_arquivo
 
@@ -58,6 +88,15 @@ def adiciona_animal(tutores):
     salva_arquivo(tutores)
 
 def remove_animal(tutores):
+    '''
+    Remove um animal do tutor especificado.
+
+    Args:
+    tutores (list): Uma lista de objetos Tutores representando os tutores.
+
+    Returns:
+    None
+    '''
     from pastas.funcoes import busca_nome, exibe_subtitulo, limpa_tela
     from pastas.tutores import salva_arquivo
 
@@ -93,6 +132,15 @@ def remove_animal(tutores):
     salva_arquivo(tutores)
 
 def edita_animal(tutores):
+    '''
+    Edita informações de um animal pertencente a um tutor.
+
+    Args:
+    tutores (list): Uma lista de objetos Tutores representando os tutores.
+
+    Returns:
+    None
+    '''
     from pastas.funcoes import busca_nome, exibe_subtitulo, limpa_tela
 
     exibe_subtitulo('Editando Animal')
@@ -125,6 +173,18 @@ def edita_animal(tutores):
     escolhe_opcao_editar(tutores, animal, tutor, indice_animal)
 
 def escolhe_opcao_editar(tutores, animal, tutor, indice_animal):
+    '''
+    Solicita ao usuário escolher uma informação do animal para editar e executa a edição correspondente.
+
+    Args:
+    tutores (list): Uma lista de objetos Tutores representando os tutores.
+    animal (Animais): O animal a ser editado.
+    tutor (Tutores): O tutor ao qual o animal pertence.
+    indice_animal (int): O índice do animal na lista de animais do tutor.
+
+    Returns:
+    None
+    '''
     from pastas.funcoes import exibe_subtitulo, opcao_invalida
     from pastas.tutores import salva_arquivo
     from main import main
@@ -171,6 +231,17 @@ def escolhe_opcao_editar(tutores, animal, tutor, indice_animal):
         opcao_invalida()
 
 def troca_animal(tutores, tutor_atual, indice_animal):
+    '''
+    Transfere um animal para outro tutor.
+
+    Args:
+    tutores (list): Uma lista de objetos Tutores representando os tutores.
+    tutor_atual (Tutores): O tutor atual do animal.
+    indice_animal (int): O índice do animal na lista de animais do tutor atual.
+
+    Returns:
+    None
+    '''
     from pastas.funcoes import busca_nome, limpa_tela
     from pastas.tutores import salva_arquivo
 
@@ -191,6 +262,15 @@ def troca_animal(tutores, tutor_atual, indice_animal):
     salva_arquivo(tutores)
 
 def busca_animal(lista_animais):
+    '''
+    Busca um animal na lista de animais.
+
+    Args:
+    lista_animais (list): Uma lista de objetos Animais representando os animais.
+
+    Returns:
+    None
+    '''
     from pastas.funcoes import busca_nome, exibe_subtitulo
 
     exibe_subtitulo('Buscando Animal')
@@ -208,6 +288,12 @@ def busca_animal(lista_animais):
         print('Esse animal não está presente na lista!')
     
 def menu_editar_animal():
+    '''
+    Exibe o menu de opções para edição de um animal.
+
+    Returns:
+    None
+    '''
     from pastas.funcoes import exibe_subtitulo
 
     exibe_subtitulo('Qual informção você deseja editar?')
