@@ -8,6 +8,7 @@ void adicionar_tutor(Tutores* lista_tutores){
     printf(">>");
     scanf(" %[^\n]",nome);
     str_end(nome);
+    if(voltar_menu(string_upper(nome)) == 1) return;
     int count_erro = 0;
     while((verificar_nome(nome))==1 && count_erro <= 3){
         if(count_erro<3){
@@ -18,6 +19,7 @@ void adicionar_tutor(Tutores* lista_tutores){
             printf(">>");
             scanf(" %[^\n]",nome);
             str_end(nome);
+            if(voltar_menu(string_upper(nome)) == 1) return;
             count_erro++;
         }
         else{
@@ -35,6 +37,7 @@ void adicionar_tutor(Tutores* lista_tutores){
     printf(">>");
     scanf(" %[^\n]",contato);
     str_end(contato);
+    if(voltar_menu(string_upper(contato)) == 1) return;
     count_erro = 0;
     while((verificar_contato(contato)) == 1 && count_erro <= 3){
         if(count_erro<3){
@@ -45,6 +48,7 @@ void adicionar_tutor(Tutores* lista_tutores){
             printf(">>");
             scanf(" %[^\n]",contato);
             str_end(contato);
+            if(voltar_menu(string_upper(contato)) == 1) return;
             count_erro++;
         }
         else{
@@ -62,6 +66,7 @@ void adicionar_tutor(Tutores* lista_tutores){
     printf(">>");
     scanf(" %[^\n]",documento);
     str_end(documento);
+    if(voltar_menu(string_upper(documento)) == 1) return;
     count_erro = 0;
     while((verificar_documento(documento)) == 1 && count_erro <= 3){
         if(count_erro<3){
@@ -72,6 +77,7 @@ void adicionar_tutor(Tutores* lista_tutores){
             printf(">>");
             scanf(" %[^\n]",documento);
             str_end(documento);
+            if(voltar_menu(string_upper(documento)) == 1) return;
             count_erro++;
         }
         else{
@@ -94,6 +100,7 @@ void remover_tutor(Tutores* lista_tutores){
     printf(">>");
     scanf(" %[^\n]", nome_busca);
     str_end(nome_busca);
+    if(voltar_menu(string_upper(nome_busca)) == 1) return;
     int count_erro = 0;
     while((verificar_nome(nome_busca))==1 && count_erro <= 3){
         if(count_erro<3){
@@ -104,6 +111,7 @@ void remover_tutor(Tutores* lista_tutores){
             printf(">>");
             scanf(" %[^\n]",nome_busca);
             str_end(nome_busca);
+            if(voltar_menu(string_upper(nome_busca)) == 1) return;
             count_erro++;
         }
         else{
@@ -126,6 +134,7 @@ void adicionar_animal(Tutores* lista_tutores) {
     printf(">>");
     scanf(" %[^\n]", nome_tutor);
     str_end(nome_tutor);
+    if(voltar_menu(string_upper(nome_tutor)) == 1) return;
     int count_erro = 0;
     while ((verificar_nome(nome_tutor)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -136,6 +145,7 @@ void adicionar_animal(Tutores* lista_tutores) {
             printf(">>");
             scanf(" %[^\n]", nome_tutor);
             str_end(nome_tutor);
+            if(voltar_menu(string_upper(nome_tutor)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Adicionar animal", "PEDROS VET");
@@ -160,6 +170,7 @@ void adicionar_animal(Tutores* lista_tutores) {
     printf(">>");
     scanf(" %[^\n]", nome_animal);
     str_end(nome_animal);
+    if(voltar_menu(string_upper(nome_animal)) == 1) return;
     count_erro = 0;
     while ((verificar_nome(nome_animal)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -170,6 +181,7 @@ void adicionar_animal(Tutores* lista_tutores) {
             printf(">>");
             scanf(" %[^\n]", nome_animal);
             str_end(nome_animal);
+            if(voltar_menu(string_upper(nome_animal)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Adicionar animal", "PEDROS VET");
@@ -185,6 +197,7 @@ void adicionar_animal(Tutores* lista_tutores) {
     printf(">>");
     scanf(" %[^\n]", idade);
     str_end(idade);
+    if(voltar_menu(string_upper(idade)) == 1) return;
     count_erro = 0;
     while ((verificar_condicao(idade)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -194,6 +207,7 @@ void adicionar_animal(Tutores* lista_tutores) {
             printf(">>");
             scanf(" %[^\n]", idade);
             str_end(idade);
+            if(voltar_menu(string_upper(idade)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Adicionar animal", "PEDROS VET");
@@ -210,6 +224,7 @@ void adicionar_animal(Tutores* lista_tutores) {
     printf(">>");
     scanf(" %[^\n]", especie);
     str_end(especie);
+    if(voltar_menu(string_upper(especie)) == 1) return;
     count_erro = 0;
     while ((verificar_nome(especie)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -220,6 +235,7 @@ void adicionar_animal(Tutores* lista_tutores) {
             printf(">>");
             scanf(" %[^\n]", especie);
             str_end(especie);
+            if(voltar_menu(string_upper(especie)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Adicionar animal", "PEDROS VET");
@@ -236,6 +252,7 @@ void adicionar_animal(Tutores* lista_tutores) {
     printf(">>");
     scanf(" %[^\n]", condicao);
     str_end(condicao);
+    if(voltar_menu(string_upper(condicao)) == 1) return;
     count_erro = 0;
     while ((verificar_condicao(condicao)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -246,6 +263,7 @@ void adicionar_animal(Tutores* lista_tutores) {
             printf(">>");
             scanf(" %[^\n]", condicao);
             str_end(condicao);
+            if(voltar_menu(string_upper(condicao)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Adicionar animal", "PEDROS VET");
@@ -267,6 +285,7 @@ void remover_animal(Tutores* lista_tutores){
     printf(">>");
     scanf(" %[^\n]", nome_tutor);
     str_end(nome_tutor);
+    if(voltar_menu(string_upper(nome_tutor)) == 1) return;
     int count_erro = 0;
     while ((verificar_nome(nome_tutor)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -277,6 +296,7 @@ void remover_animal(Tutores* lista_tutores){
             printf(">>");
             scanf(" %[^\n]", nome_tutor);
             str_end(nome_tutor);
+            if(voltar_menu(string_upper(nome_tutor)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Remover animal", "PEDROS VET");
@@ -293,6 +313,7 @@ void remover_animal(Tutores* lista_tutores){
     printf(">>");
     scanf(" %[^\n]", nome_animal);
     str_end(nome_animal);
+    if(voltar_menu(string_upper(nome_animal)) == 1) return;
     count_erro = 0;
     while ((verificar_nome(nome_animal)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -303,6 +324,7 @@ void remover_animal(Tutores* lista_tutores){
             printf(">>");
             scanf(" %[^\n]", nome_animal);
             str_end(nome_animal);
+            if(voltar_menu(string_upper(nome_animal)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Remover animal", "PEDROS VET");
@@ -332,6 +354,7 @@ void editar_animal(Tutores* lista_tutores){
     printf(">>");
     scanf(" %[^\n]", nome_tutor);
     str_end(nome_tutor);
+    if(voltar_menu(string_upper(nome_tutor)) == 1) return;
     int count_erro = 0;
     while ((verificar_nome(nome_tutor)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -342,6 +365,7 @@ void editar_animal(Tutores* lista_tutores){
             printf(">>");
             scanf(" %[^\n]", nome_tutor);
             str_end(nome_tutor);
+            if(voltar_menu(string_upper(nome_tutor)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
@@ -366,6 +390,7 @@ void editar_animal(Tutores* lista_tutores){
     printf(">>");
     scanf(" %[^\n]", nome_animal);
     str_end(nome_animal);
+    if(voltar_menu(string_upper(nome_animal)) == 1) return;
     count_erro = 0;
     while ((verificar_nome(nome_animal)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -376,6 +401,7 @@ void editar_animal(Tutores* lista_tutores){
             printf(">>");
             scanf(" %[^\n]", nome_animal);
             str_end(nome_animal);
+            if(voltar_menu(string_upper(nome_animal)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
@@ -458,6 +484,7 @@ void buscar_animal(Tutores* lista_tutores){
     printf(">>");
     scanf(" %[^\n]", nome_animal);
     str_end(nome_animal);
+    if(voltar_menu(string_upper(nome_animal)) == 1) return;
     int count_erro = 0;
     while ((verificar_nome(nome_animal)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -468,6 +495,7 @@ void buscar_animal(Tutores* lista_tutores){
             printf(">>");
             scanf(" %[^\n]", nome_animal);
             str_end(nome_animal);
+            if(voltar_menu(string_upper(nome_animal)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Buscar animal", "PEDROS VET");

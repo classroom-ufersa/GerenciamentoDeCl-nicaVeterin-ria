@@ -120,6 +120,7 @@ void editar_nome_animal(Animais* animal){
     printf(">>");
     scanf(" %[^\n]", nome);
     str_end(nome);
+    if(voltar_menu(string_upper(nome)) == 1) return;
     int count_erro = 0;
     while ((verificar_nome(nome)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -130,6 +131,7 @@ void editar_nome_animal(Animais* animal){
             printf(">>");
             scanf(" %[^\n]", nome);
             str_end(nome);
+            if(voltar_menu(string_upper(nome)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
@@ -157,6 +159,7 @@ void editar_idade_animal(Animais* animal){
     printf(">>");
     scanf(" %[^\n]", idade);
     str_end(idade);
+    if(voltar_menu(string_upper(idade)) == 1) return;
     int count_erro = 0;
     while ((verificar_condicao(idade)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -165,6 +168,7 @@ void editar_idade_animal(Animais* animal){
             printf("Informe a idade do animal\n");
             printf(">>");
             scanf(" %[^\n]", idade);
+            if(voltar_menu(string_upper(idade)) == 1) return;
             str_end(idade);
             count_erro++;
         } else {
@@ -193,6 +197,7 @@ void editar_especie_animal(Animais* animal){
     printf(">>");
     scanf(" %[^\n]", especie);
     str_end(especie);
+    if(voltar_menu(string_upper(especie)) == 1) return;
     int count_erro = 0;
     while ((verificar_nome(especie)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -203,6 +208,7 @@ void editar_especie_animal(Animais* animal){
             printf(">>");
             scanf(" %[^\n]", especie);
             str_end(especie);
+            if(voltar_menu(string_upper(especie)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
@@ -231,6 +237,7 @@ void editar_condicao_animal(Animais* animal){
     printf(">>");
     scanf(" %[^\n]", condicao);
     str_end(condicao);
+    if(voltar_menu(string_upper(condicao)) == 1) return;
     int count_erro = 0;
     while ((verificar_condicao(condicao)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -241,6 +248,7 @@ void editar_condicao_animal(Animais* animal){
             printf(">>");
             scanf(" %[^\n]", condicao);
             str_end(condicao);
+            if(voltar_menu(string_upper(condicao)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
