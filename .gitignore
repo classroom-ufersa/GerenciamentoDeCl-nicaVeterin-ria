@@ -50,3 +50,33 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Arquivos de compilação Python
+*.pyc
+__pycache__/
+
+# Arquivos de ambiente virtual
+venv/
+env/
+.venv/
+.env/
+
+# Arquivos de configuração local
+*.sqlite3
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos gerados pela IDE ou editor de código
+.idea/
+.vscode/
+
+# Arquivos de log e cache
+*.log
+logs/
+*.cache
+.cache/
+
+# Arquivos de configuração específicos de sistema operacional
+.DS_Store
+Thumbs.db
