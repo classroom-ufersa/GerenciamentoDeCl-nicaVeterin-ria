@@ -1,10 +1,16 @@
+Tutor | Nome: Moises | Contato: moises@gmail | Documento: 124.235.464-98
+	Animais do Tutor:
+	Nome: Eduarda | Idade: 7 | Especie: Cachorro | Saude: Otima
+
 Tutor | Nome: Pedro Henrique | Contato: (88)996415823 | Documento: 345.257.893-18
 	Animais do Tutor:
+	Nome: Apa | Idade: 4 | Especie: Pata | Saude: Cega
 	Nome: Dudu | Idade: 3 | Especie: Hamster | Saude: Saude Mental Comprometida
 	Nome: Samuel | Idade: 4 | Especie: Gato | Saude: Ruim
 
 Tutor | Nome: Pedro Lucas | Contato: (84)999291235 | Documento: 123.121.567-17
 	Animais do Tutor:
 	Nome: Dante | Idade: 3 | Especie: Husky | Saude: Capado
+	Nome: Lucas | Idade: 5 | Especie: Formiga | Saude: Boa
 	Nome: Theo | Idade: 4 | Especie: Shitzu | Saude: Boa
 

@@ -79,23 +79,63 @@ def criar_tutor(tutores):
     None
     '''
     from pastas.animais import Animais
-    from pastas.funcoes import exibe_subtitulo, limpa_tela
+    from pastas.funcoes import exibe_subtitulo, limpa_tela, obter_numero_inteiro
 
     exibe_subtitulo('Adicionando Tutor')
     nome = input("Nome do tutor: ")
+    while not nome.strip() or nome.isdigit():
+        if nome.isdigit():
+            exibe_subtitulo('Adicionando Tutor')
+            nome = input('O nome do tutor não pode ser um número. Por favor, informe novamente: ')
+        else:
+            exibe_subtitulo('Adicionando Tutor')
+            nome = input('O nome do tutor não pode ficar em branco. Por favor, informe novamente: ')
+
     contato = input("Contato do tutor: ")
+    while not contato.strip():
+        exibe_subtitulo('Adicionando Tutor')
+        contato = input('O contato do tutor não pode ficar em branco. Por favor, informe novamente: ')
+
     documento = input("Documento do tutor: ")
+    while not documento.strip():
+        exibe_subtitulo('Adicionando Tutor')
+        documento = input('O documento do tutor não pode ficar em branco. Por favor, informe novamente: ')
     print()
 
     animais = []
     while True:
         exibe_subtitulo('Adicionando o(s) Animal(ais) do Tutor')
         nome_animal = input('Informe o nome do animal que você deseja adicionar: ')
-        idade_animal = input('Informe a idade do animal: ')
-        especie_animal = input('Informe a espécie do animal: ')
-        saude_animal = input('Informe a saúde do animal: ')
+        while not nome_animal.strip() or nome_animal.isdigit():
+            if nome_animal.isdigit():
+                exibe_subtitulo('Adicionando o(s) Animal(ais) do Tutor')
+                nome_animal = input('O nome do animal não pode ser um número. Por favor, informe novamente: ')
+            else:
+                exibe_subtitulo('Adicionando o(s) Animal(ais) do Tutor')
+                nome_animal = input('O nome do animal não pode ficar em branco. Por favor, informe novamente: ')
 
-        animal = Animais(nome_animal.title(), idade_animal.title(), especie_animal.title(), saude_animal.title())
+        print()
+        idade_animal = obter_numero_inteiro('Adicionando o(s) Animal(ais) do Tutor')
+
+        especie_animal = input('\nInforme a espécie do animal: ')
+        while not especie_animal.strip() or especie_animal.isdigit():
+            if especie_animal.isdigit():
+                exibe_subtitulo('Adicionando o(s) Animal(ais) do Tutor')
+                especie_animal = input('A espécie do animal não pode ser um número. Por favor, informe novamente: ')
+            else:
+                exibe_subtitulo('Adicionando o(s) Animal(ais) do Tutor')
+                especie_animal = input('A espécie do animal não pode ficar em branco. Por favor, informe novamente: ')
+
+        saude_animal = input('\nInforme a saúde do animal: ')
+        while not saude_animal.strip() or saude_animal.isdigit():
+            if saude_animal.isdigit():
+                exibe_subtitulo('Adicionando o(s) Animal(ais) do Tutor')
+                saude_animal = input('A saude do animal não pode ser um número. Por favor, informe novamente: ')
+            else:
+                exibe_subtitulo('Adicionando o(s) Animal(ais) do Tutor')
+                saude_animal = input('A saude do animal não pode ficar em branco. Por favor, informe novamente: ')
+
+        animal = Animais(nome_animal.title(), idade_animal, especie_animal.title(), saude_animal.title())
         animais.append(animal)
         animais.sort(key=lambda x: x.nome)
 

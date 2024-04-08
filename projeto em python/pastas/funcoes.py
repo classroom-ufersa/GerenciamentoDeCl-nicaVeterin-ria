@@ -45,29 +45,29 @@ def escolhe_opcao_menu(lista_animais, lista_tutores):
     from pastas.tutores import criar_tutor, remove_tutor, mostra_arquivo
 
     try:
-        opcao_escolhida = int(input('\nEscolha uma opção: '))
+        opcao_escolhida = input('escolha uma opção: ')
 
-        if opcao_escolhida == 1:
+        if opcao_escolhida == '1':
             criar_tutor(lista_tutores)
             volta_ao_menu()
-        elif opcao_escolhida == 2:
+        elif opcao_escolhida == '2':
             remove_tutor(lista_tutores)
             volta_ao_menu()
-        elif opcao_escolhida == 3:
+        elif opcao_escolhida == '3':
             adiciona_animal(lista_tutores)
             volta_ao_menu()
-        elif opcao_escolhida == 4:
+        elif opcao_escolhida == '4':
             remove_animal(lista_tutores)
             volta_ao_menu()
-        elif opcao_escolhida == 5:
+        elif opcao_escolhida == '5':
             edita_animal(lista_tutores)
-        elif opcao_escolhida == 6:
+        elif opcao_escolhida == '6':
             busca_animal(lista_animais)
             volta_ao_menu()
-        elif opcao_escolhida == 7:
+        elif opcao_escolhida == '7':
             mostra_arquivo()
             volta_ao_menu()
-        elif opcao_escolhida == 8:
+        elif opcao_escolhida == '8':
             finalizar_programa()
         else:
             opcao_invalida()
@@ -163,3 +163,21 @@ def finalizar_programa():
     '''
     limpa_tela()
     print('Saindo...')
+
+def obter_numero_inteiro(texto):
+    '''
+    Solicita ao usuário inserir um número inteiro.
+
+    Args:
+    texto (str): O texto a ser exibido como subtítulo.
+
+    Returns:
+    int: O número inteiro inserido pelo usuário.
+    '''
+    while True:
+        try:
+            numero = int(input('Informe a idade do animal: '))
+            return numero
+        except ValueError:
+            exibe_subtitulo(texto)
+            print('Por favor, insira um número inteiro')
