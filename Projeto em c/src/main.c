@@ -1,33 +1,21 @@
 #include"sistema.c"
 
-
 int main(void){
     Tutores* lista_tutores=cria_tutores();
     lista_tutores = carregar_dados(lista_tutores);
     Tutores* temp = lista_tutores;
     temp = temp->prox;
     printf("%s",temp->lista_animais->nome);
-
-
     char opcao[N];
     do{
         menu();
         printf(">>");
-        /*int i = 0;
-        char caractere;
-        while ((caractere = getchar()) != '\n') {
-            opcao[i] = caractere;
-            i++;
-        }
-        opcao[i] = '\0';*/
         scanf(" %[^\n]",opcao);
         if(verificar_opcao(opcao) == 1){
             print_msg(1);
             pressiona_enter();
         }
         else{
-        
-
             switch(opcao[0]){
             case '1':
                 adicionar_tutor(lista_tutores);

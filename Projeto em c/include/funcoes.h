@@ -2,12 +2,42 @@
 #include<stdio.h>
 #include<string.h>
 #include<ctype.h>
-#include <conio.h>
+#include<conio.h>
+
+/**
+ * @var TXT_red
+ * @brief Código ANSI para texto vermelho.
+*/
 #define TXT_red "\x1b[31m"
+
+/**
+ * @var TXT_green
+ * @brief Código ANSI para texto verde.
+*/
 #define TXT_green "\x1b[32m"
+
+/**
+ * @varTXT_yellow
+ * @brief Código ANSI para texto amarelo.
+*/
 #define TXT_yellow "\x1b[33m"
+
+/**
+ * @var TXT_whitered
+ * @brief Código ANSI para texto branco com fundo vermelho.
+*/
 #define TXT_whitered "\x1b[41m"
+
+/**
+ * @var TXT_reset
+ * @brief Código ANSI para resetar a cor do texto.
+*/
 #define TXT_reset "\x1b[0m"
+
+/**
+ * @var N
+ * @brief Tamanho máximo de strings.
+*/
 #define N 81
 
 /**
@@ -151,7 +181,8 @@ char *string_upper(char *str);
  * 
  * @param str1 A primeira string a ser comparada.
  * @param str2 A segunda string a ser comparada.
- * @return 0 se as strings forem iguais, um valor negativo se a primeira string for menor que a segunda e um valor positivo se a primeira string for maior que a segunda.
+ * @return 0 se as strings forem iguais, um valor negativo se a primeira string 
+ * for menor que a segunda e um valor positivo se a primeira string for maior que a segunda.
  */
 int comparenames(char* str1, char* str2);
 
@@ -160,13 +191,41 @@ int comparenames(char* str1, char* str2);
  * 
  * Esta função exibe um menu com opções numéricas para edição de informações
  * de um animal. As opções do menu são:
- * 1 - Editar nome
+ * 1 - Editar nome 
  * 2 - Editar idade
  * 3 - Editar espécie
  * 4 - Editar condição
  * 5 - Voltar
  */
 void menu_editar_animal();
+
+/**
+ * @brief Verifica se a string fornecida é igual à "VOLTAR" e retorna um indicador de retorno.
+ *
+ * Esta função analisa a string fornecida como entrada e determina se ela corresponde à string "VOLTAR". 
+ * Se isso for verdadeiro, ela exibe uma mensagem indicativa para o usuário e aguarda a entrada de Enter.
+ * Em seguida, retorna um valor de indicação. Caso contrário, retorna um valor padrão.
+ *
+ * @param str A string fornecida pelo usuário.
+ * @return 1 se a string for "VOLTAR", 0 caso contrário.
+ */
+int voltar_menu(char* str);
+
+/**
+ * @brief Limpa a tela do console.
+ * 
+ * Esta função verifica o sistema operacional em que está sendo executada e 
+ * executa o comando apropriado para limpar a tela do console.
+ */
+void limpa_tela(void);
+
+/**
+ * @brief Pausa a execução do programa.
+ * 
+ * Esta função pausa a execução do programa até que o usuário pressione
+ * a tecla Enter.
+ */
+void pressiona_enter();
 
 /**
  * @brief Exibe uma mensagem na tela.
@@ -248,18 +307,3 @@ void condicao_condicao();
  * formada por caracteres ASCII, para fins decorativos.
  */
 void pedros_vet();
-
-/**
- * @brief Limpa a tela.
- * 
- * Esta função limpa a tela do terminal.
- */
-void limpa_tela(void);
-
-/**
- * @brief Pausa a execução do programa.
- * 
- * Esta função pausa a execução do programa até que o usuário pressione
- * a tecla Enter.
- */
-void pressiona_enter();

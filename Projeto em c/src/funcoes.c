@@ -172,6 +172,31 @@ void menu_editar_animal(){
     printf("6 - Voltar\n");
 }
 
+int voltar_menu(char* str){
+    if(strcmp(str, "VOLTAR") == 0){
+        print_msg(21);
+        pressiona_enter();
+        return 1;
+    }
+    return 0;
+}
+
+void limpa_tela(){
+    #ifdef _WIN32
+        system("cls");
+    #elif __APPLE__
+        system("clear");
+    #elif __linux__
+        system("clear");
+    #endif
+}
+
+void pressiona_enter(){
+    printf("\nPressione ENTER para continuar.");
+    while (getchar() != '\n');
+    getchar();
+}
+
 void print_msg(int cod_msg){
     // mensagem limpa:
     if(cod_msg == 0) printf("\n\n");
@@ -211,6 +236,7 @@ void condicao_nome_add(){
     printf("%c -N%co come%car com espa%co.           %c\n",186,198,135,135,186);
     printf("%c -N%co possuir n%cmeros.              %c\n",186,198,163,186);
     printf("%c -N%co possuir caracteres inv%clidos. %c\n",186,198,160,186);
+    printf("%c -Digite VOLTAR para voltar ao menu.%c\n",186,186);
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
 }
 
@@ -219,6 +245,7 @@ void condicao_nome_busca(){
     printf("%c -N%co come%car com espa%co.           %c\n",186,198,135,135,186);
     printf("%c -N%co possuir n%cmeros.              %c\n",186,198,163,186);
     printf("%c -N%co possuir caracteres inv%clidos. %c\n",186,198,160,186);
+    printf("%c -Digite VOLTAR para voltar ao menu.%c\n",186,186);
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
 }
 
@@ -226,6 +253,7 @@ void condicao_contato(){
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187);
     printf("%c -Formato do contato:               %c\n",186,186);
     printf("%c          (xx)xxxxx-xxxx            %c\n",186,186);
+    printf("%c -Digite VOLTAR para voltar ao menu.%c\n",186,186);
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
 }
 
@@ -233,6 +261,7 @@ void condicao_documento(){
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187);
     printf("%c -Formato do documento:             %c\n",186,186);
     printf("%c          xxx.xxx.xxx-xx            %c\n",186,186);
+    printf("%c -Digite VOLTAR para voltar ao menu.%c\n",186,186);
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
 }
 
@@ -242,6 +271,7 @@ void condicao_especie(){
     printf("%c -N%co come%car com espa%co.           %c\n",186,198,135,135,186);
     printf("%c -N%co possuir n%cmeros.              %c\n",186,198,163,186);
     printf("%c -N%co possuir caracteres inv%clidos. %c\n",186,198,160,186);
+    printf("%c -Digite VOLTAR para voltar ao menu.%c\n",186,186);
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
 }
 
@@ -249,6 +279,7 @@ void condicao_condicao(){
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187);
     printf("%c -N%co come%car com espa%co.           %c\n",186,198,135,135,186);
     printf("%c -N%co possuir caracteres inv%clidos. %c\n",186,198,160,186);
+    printf("%c -Digite VOLTAR para voltar ao menu.%c\n",186,186);
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188);
 }
 
@@ -259,14 +290,4 @@ void pedros_vet(){
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c    %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",219,219,201,205,205,205,188,176,219,219,201,205,205,188,176,176,219,219,186,176,176,219,219,186,219,219,201,205,205,219,219,187,219,219,186,176,176,219,219,186,176,200,205,205,205,219,219,187,176,200,219,219,219,219,201,188,176,219,219,201,205,205,188,176,176,176,176,176,219,219,186,176,176,176);
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c    %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",219,219,186,176,176,176,176,176,219,219,219,219,219,219,219,187,219,219,219,219,219,219,201,188,219,219,186,176,176,219,219,186,200,219,219,219,219,219,201,188,219,219,219,219,219,219,201,188,176,176,200,219,219,201,188,176,176,219,219,219,219,219,219,219,187,176,176,176,219,219,186,176,176,176);
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c    %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",200,205,188,176,176,176,176,176,200,205,205,205,205,205,205,188,200,205,205,205,205,205,188,176,200,205,188,176,176,200,205,188,176,200,205,205,205,205,188,176,200,205,205,205,205,205,188,176,176,176,176,200,205,188,176,176,176,200,205,205,205,205,205,205,188,176,176,176,200,205,188,176,176,176);
-}
-
-void limpa_tela(){
-    system("cls");
-}
-
-void pressiona_enter(){
-    printf("\nPressione ENTER para continuar.");
-    while (getchar() != '\n');
-    getchar();
 }

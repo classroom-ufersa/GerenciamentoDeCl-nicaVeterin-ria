@@ -103,10 +103,12 @@ void editar_tutor_animal(Tutores *lista_tutores, Tutores *tutor_atual, Animais *
     cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
     printf("Tutor atual: %s\n", tutor_atual->nome);
     printf("Digite o nome do novo tutor:\n");
+    condicao_nome_busca();
     char nome[N];
     printf(">>");
     scanf(" %[^\n]", nome);
     str_end(nome);
+    if(voltar_menu(string_upper(nome)) == 1) return;
     int count_erro = 0;
     while ((verificar_nome(nome)) == 1 && count_erro <= 3) {
         if (count_erro < 3) {
@@ -117,6 +119,7 @@ void editar_tutor_animal(Tutores *lista_tutores, Tutores *tutor_atual, Animais *
             printf(">>");
             scanf(" %[^\n]", nome);
             str_end(nome);
+            if(voltar_menu(string_upper(nome)) == 1) return;
             count_erro++;
         } else {
             cabecalho("Editar informa\x87\xc6o de animal", "PEDROS VET");
