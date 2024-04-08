@@ -111,13 +111,12 @@ def criar_tutor(tutores):
             while para != 'S' and para != 'N':
                 limpa_tela()
                 print('Ops! parece que você digitou errado\n')
-                para = input('Digite (S) para continuar ou Digite (N) para sair: ')
+                para = input('Digite (S) para adicinar outro animal ou Digite (N) para sair: ')
                 para = para.upper()
 
-    novo_tutor = Tutores(nome.title(), contato.title(), documento.title(), animais)
+    novo_tutor = Tutores(nome.title(), contato, documento, animais)
     tutores.append(novo_tutor)
     tutores.sort(key=lambda x: x.nome)
-
     salva_arquivo(tutores)
 
 def remove_tutor(tutores):
@@ -140,12 +139,16 @@ def remove_tutor(tutores):
     nome_tutor = nome_tutor.title()
     indice_tutor = busca_nome(tutores, nome_tutor)
 
-    if indice_tutor != -1:
-        tutores.pop(indice_tutor)
-        print(f'O tutor {nome_tutor} foi removido com sucesso!')
-        salva_arquivo(tutores)
-    else:
-        print('Tutor não encontrado')
+    while indice_tutor == -1:
+        exibe_subtitulo('Tutor não encontrado!')
+        nome_tutor = input('Informe o nome de um tutor presente na lista: ')
+        nome_tutor = nome_tutor.title()
+        indice_tutor = busca_nome(tutores, nome_tutor)
+
+    tutores.pop(indice_tutor)
+    print(f'\nO tutor {nome_tutor} foi removido com sucesso!')
+    salva_arquivo(tutores)
+
 
 def salva_arquivo(tutores):
     '''

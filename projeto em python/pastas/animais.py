@@ -71,19 +71,18 @@ def adiciona_animal(tutores):
 
     indice_tutor = busca_nome(tutores, nome_tutor)
     
-    if indice_tutor != -1:
-        tutor = tutores[indice_tutor]
-        novo_animal = Animais(nome_animal.title(), idade_animal.title(), especie_animal.title(), saude_animal.title())
-        tutor.animais_tutor.append(novo_animal)
-        tutor.animais_tutor.sort(key=lambda x: x.nome)
-        print(f'Animal {nome_animal} adicionado')
-    else:
-        while indice_tutor == -1:
-            limpa_tela()
-            print(f'Tutor não encontrado')
-            nome_tutor = input('Informe o nome de um tutor presente na lista: ')
-            nome_tutor = nome_tutor.title()
-            indice_tutor = busca_nome(tutores, nome_tutor)
+    while indice_tutor == -1:
+        exibe_subtitulo('Tutor não encontrado!')
+        nome_tutor = input('Informe o nome de um tutor presente na lista: ')
+        nome_tutor = nome_tutor.title()
+        indice_tutor = busca_nome(tutores, nome_tutor)
+
+    tutor = tutores[indice_tutor]
+    novo_animal = Animais(nome_animal.title(), idade_animal.title(), especie_animal.title(), saude_animal.title())
+    tutor.animais_tutor.append(novo_animal)
+    tutor.animais_tutor.sort(key=lambda x: x.nome)
+    print(f'Animal {nome_animal} adicionado')
+       
     
     salva_arquivo(tutores)
 
@@ -107,8 +106,7 @@ def remove_animal(tutores):
     indice_tutor = busca_nome(tutores, nome_tutor)
 
     while indice_tutor == -1:
-        limpa_tela()
-        print(f'Tutor não encontrado')
+        exibe_subtitulo('Tutor não encontrado!')
         nome_tutor = input('Informe o nome de um tutor presente na lista: ')
         nome_tutor = nome_tutor.title()
         indice_tutor = busca_nome(tutores, nome_tutor)
@@ -120,14 +118,13 @@ def remove_animal(tutores):
     indice_animal = busca_nome(tutor.animais_tutor, nome_animal)
 
     while indice_animal == -1:
-        limpa_tela()
-        print(f'Animal não encontrado nesse tutor')
+        exibe_subtitulo('Animal não encontrado nesse tutor')
         nome_animal = input('Informe o nome de um animal que pertence a esse tutor: ')
         nome_animal = nome_animal.title()
         indice_animal = busca_nome(tutor.animais_tutor, nome_animal)
 
     tutor.animais_tutor.pop(indice_animal)
-    print(f'Animal {nome_animal} removido')
+    print(f'\nAnimal {nome_animal} removido')
             
     salva_arquivo(tutores)
 
@@ -150,8 +147,7 @@ def edita_animal(tutores):
     indice_tutor = busca_nome(tutores, nome_tutor)
 
     while indice_tutor == -1:
-        limpa_tela()
-        print(f'Tutor não encontrado')
+        exibe_subtitulo('Tutor não encontrado!')
         nome_tutor = input('Informe o nome de um tutor presente na lista: ')
         nome_tutor = nome_tutor.title()
         indice_tutor = busca_nome(tutores, nome_tutor)
@@ -163,16 +159,15 @@ def edita_animal(tutores):
     indice_animal = busca_nome(tutor.animais_tutor, nome_animal)
 
     while indice_animal == -1:
-        limpa_tela()
-        print(f'Animal não encontrado nesse tutor')
+        exibe_subtitulo(f'Animal não encontrado nesse tutor')
         nome_animal = input('Informe o nome de um animal que pertence a esse tutor: ')
         nome_animal = nome_animal.title()
         indice_animal = busca_nome(tutor.animais_tutor, nome_animal)
 
     animal = tutor.animais_tutor[indice_animal]
-    escolhe_opcao_editar(tutores, animal, tutor, indice_animal)
+    escolhe_opcao_editar(tutores, animal, tutor)
 
-def escolhe_opcao_editar(tutores, animal, tutor, indice_animal):
+def escolhe_opcao_editar(tutores, animal, tutor):
     '''
     Solicita ao usuário escolher uma informação do animal para editar e executa a edição correspondente.
 
@@ -180,7 +175,6 @@ def escolhe_opcao_editar(tutores, animal, tutor, indice_animal):
     tutores (list): Uma lista de objetos Tutores representando os tutores.
     animal (Animais): O animal a ser editado.
     tutor (Tutores): O tutor ao qual o animal pertence.
-    indice_animal (int): O índice do animal na lista de animais do tutor.
 
     Returns:
     None
@@ -197,69 +191,35 @@ def escolhe_opcao_editar(tutores, animal, tutor, indice_animal):
             novo_nome = str(input('Informe o novo nome do animal: '))
             novo_nome= novo_nome.title()
             animal.nome = novo_nome
+            tutor.animais_tutor.sort(key=lambda x: x.nome)
             salva_arquivo(tutores)
-            escolhe_opcao_editar(tutores, animal, tutor, indice_animal)
+            escolhe_opcao_editar(tutores, animal, tutor)
         elif opcao_escolhida == 2:
             exibe_subtitulo('Nova idade')
             nova_idade = int(input('Informe a nova idade do animal: '))
             animal.idade = nova_idade
             salva_arquivo(tutores)
-            escolhe_opcao_editar(tutores, animal, tutor, indice_animal)
+            escolhe_opcao_editar(tutores, animal, tutor)
         elif opcao_escolhida == 3:
             exibe_subtitulo('Novo especie')
             nova_especie = str(input('Informe o nova espécie do animal: '))
             nova_especie = nova_especie.title()
             animal.especie = nova_especie
             salva_arquivo(tutores)
-            escolhe_opcao_editar(tutores, animal, tutor, indice_animal)
+            escolhe_opcao_editar(tutores, animal, tutor)
         elif opcao_escolhida == 4:
             exibe_subtitulo('Novo estado de saúde')
             nova_saude = str(input('Informe o novo estado de saúde do animal: '))
             nova_saude = nova_saude.title()
             animal.saude = nova_saude
             salva_arquivo(tutores)
-            escolhe_opcao_editar(tutores, animal, tutor, indice_animal)
+            escolhe_opcao_editar(tutores, animal, tutor)
         elif opcao_escolhida == 5:
-            exibe_subtitulo('Trocando Tutor')
-            troca_animal(tutores, tutor, indice_animal)
-            escolhe_opcao_editar(tutores, animal, tutor, indice_animal)
-        elif opcao_escolhida == 6:
             main()
         else:
-            opcao_invalida()
+            escolhe_opcao_editar(tutores, animal, tutor)
     except:
-        opcao_invalida()
-
-def troca_animal(tutores, tutor_atual, indice_animal):
-    '''
-    Transfere um animal para outro tutor.
-
-    Args:
-    tutores (list): Uma lista de objetos Tutores representando os tutores.
-    tutor_atual (Tutores): O tutor atual do animal.
-    indice_animal (int): O índice do animal na lista de animais do tutor atual.
-
-    Returns:
-    None
-    '''
-    from pastas.funcoes import busca_nome, limpa_tela
-    from pastas.tutores import salva_arquivo
-
-    novo_tutor = input('Informe o nome do novo tutor do animal: ')
-    novo_tutor = novo_tutor.title()
-    indice_novo_tutor = busca_nome(tutores, novo_tutor)
-    while indice_novo_tutor == -1:
-        limpa_tela()
-        print(f'Tutor não encontrado')
-        nome_tutor = input('Informe o nome de um tutor presente na lista: ')
-        nome_tutor = nome_tutor.title()
-        indice_novo_tutor = busca_nome(tutores, nome_tutor)
-
-    animal = tutor_atual.animais_tutor.pop(indice_animal)
-    novo_tutor = tutores[indice_novo_tutor]
-    novo_tutor.animais_tutor.append(animal)
-    novo_tutor.animais_tutor.sort(key=lambda x: x.nome)
-    salva_arquivo(tutores)
+        escolhe_opcao_editar(tutores, animal, tutor)
 
 def busca_animal(lista_animais):
     '''
@@ -301,5 +261,4 @@ def menu_editar_animal():
     print('2. Idade')
     print('3. Espécie')
     print('4. Saúde')
-    print('5. Troca tutor')
-    print('6. Sair')
+    print('5. Voltar ao menu principal')

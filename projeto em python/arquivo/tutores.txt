@@ -1,39 +1,10 @@
-Tutor | Nome: Alexandre | Contato: 23423424 | Documento: 234234234
+Tutor | Nome: Pedro Henrique | Contato: (88)996415823 | Documento: 345.257.893-18
 	Animais do Tutor:
-	Nome: Dante | Idade: 2 | Especie: Cachorro | Saude: Capado
-	Nome: Theo | Idade: 4 | Especie: Cachorro | Saude: Boa
+	Nome: Dudu | Idade: 3 | Especie: Hamster | Saude: Saude Mental Comprometida
+	Nome: Samuel | Idade: 4 | Especie: Gato | Saude: Ruim
 
-Tutor | Nome: Caio Moises | Contato: 487583758345 | Documento: 29489234
+Tutor | Nome: Pedro Lucas | Contato: (84)999291235 | Documento: 123.121.567-17
 	Animais do Tutor:
-	Nome: Jhoan | Idade: 3 | Especie: Chines | Saude: Otima
-	Nome: Mecin | Idade: 4 | Especie: Beagle | Saude: Boa
+	Nome: Dante | Idade: 3 | Especie: Husky | Saude: Capado
+	Nome: Theo | Idade: 4 | Especie: Shitzu | Saude: Boa
 
-Tutor | Nome: Daniel | Contato: 46456 | Documento: 464564
-	Animais do Tutor:
-	Nome: Pedro | Idade: 5 | Especie: Gato Laranja | Saude: pessima
-	Nome: Hidequel | Idade: 2 | Especie: Bulldog | Saude: Boa
-
-Tutor | Nome: Eduarda | Contato: 873875 | Documento: 3875835
-	Animais do Tutor:
-	Nome: Apa | Idade: 5 | Especie: Pata | Saude: Boa
-	Nome: Gustavo | Idade: 4 | Especie: Cachorro | Saude: Otima
-
-Tutor | Nome: Marianny | Contato: 87878456 | Documento: 4587876
-	Animais do Tutor:
-	Nome: Toto | Idade: 5 | Especie: Cachorro | Saude: Boa
-	Nome: Vlad | Idade: 12 | Especie: Jegue | Saude: Otima
-
-Tutor | Nome: Marina | Contato: 3566343 | Documento: 54345
-	Animais do Tutor:
-	Nome: Damon | Idade: 4 | Especie: Gato | Saude: Boa
-	Nome: Dudinha | Idade: 5 | Especie: gata | Saude: boa
-
-Tutor | Nome: Pedro Henrique | Contato: 2424234 | Documento: 244567
-	Animais do Tutor:
-	Nome: Eduardo | Idade: 4 | Especie: Hamster | Saude: Pessima
-	Nome: Leo | Idade: 5 | Especie: Urubu | Saude: Otima
-
-Tutor | Nome: Samuel | Contato: 76576744 | Documento: 345457754
-	Animais do Tutor:
-	Nome: Heitor | Idade: 5 | Especie: Leao | Saude: Otima
-	Nome: Yasmin | Idade: 7 | Especie: Raposa | Saude: Otima
