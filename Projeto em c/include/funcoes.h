@@ -195,7 +195,8 @@ int comparenames(char* str1, char* str2);
  * 2 - Editar idade
  * 3 - Editar espécie
  * 4 - Editar condição
- * 5 - Voltar
+ * 5 - Editar animal de tutor
+ * 6 - voltar
  */
 void menu_editar_animal();
 

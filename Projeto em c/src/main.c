@@ -3,9 +3,6 @@
 int main(void){
     Tutores* lista_tutores=cria_tutores();
     lista_tutores = carregar_dados(lista_tutores);
-    Tutores* temp = lista_tutores;
-    temp = temp->prox;
-    printf("%s",temp->lista_animais->nome);
     char opcao[N];
     do{
         menu();
