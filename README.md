@@ -96,3 +96,16 @@ Para instalar e executar este projeto, siga estas etapas:
 ```bash
     git clone https://github.com/classroom-ufersa/Gerenciamento_de_Clinica_Veterinaria.git
 ````
+
+- Execução em C
+````c
+    cd .\Projeto em c\bin\
+    gcc ..\src\main.c -o main
+    .\main.exe
+````
+
+- Execução em Python
+````python
+    cd .\projeto em pyhon\
+    python main.py
+````
