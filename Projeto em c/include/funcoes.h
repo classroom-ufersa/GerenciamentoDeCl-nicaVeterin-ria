@@ -3,7 +3,7 @@
 #include<string.h>
 #include<ctype.h>
 #include<conio.h>
-
+#include<windows.h>
 /**
  * @var TXT_red
  * @brief Código ANSI para texto vermelho.
