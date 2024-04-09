@@ -29,7 +29,7 @@ As sequintes opçãoes estão presentes no nosso menu:
 - `Remove tutor:` Remove um tutor da lista
 - `Adiciona Animal:` Adiciona animal a um tutor presente na lista
 - `Remove Animal:` Remove um animal da lista
-- `Editar informação de um animal:` Edita algum atributo pertecente a algum animal como nome, idade, espécie e saúde
+- `Editar informação de um animal:` Edita algum atributo pertecente a um animal
 - `Busca animal por nome:` Busca algum animal presente na lista pelo nome
 - `Listar tutores e seus animais:` Mostra a lista de tutores e seus respectivos animais
 - `Sair:` finaliza o programa
