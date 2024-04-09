@@ -21,7 +21,7 @@
 ***
 
 # Introdução 
-O sistema em questão, permite que o usuário seja capaz de gerenciar uma clínica veterinária de forma fácil e dinâmica. Podendo cadastrar e editar informações dos tutores.
+O sistema em questão, permite que o usuário seja capaz de gerenciar uma clínica veterinária de forma fácil e dinâmica. Podendo cadastrar e editar informações dos tutores e animais.
 ***
 
 # Problemática
