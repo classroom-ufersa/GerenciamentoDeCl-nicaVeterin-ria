@@ -2,6 +2,16 @@
 
 Esse repositório tem como objetivo desenvolver um projeto de gerenciamento de uma clínica veterinária, feito nas linguagens C e python. 
 
+# Instalação
+
+Para instalar e executar este projeto, siga estas etapas:
+
+1.  Clone o repositório do GitHub:
+
+    ```bash
+    git clone https://github.com/classroom-ufersa/Gerenciamento_de_Clinica_Veterinaria.git
+
+    
 # Descrição
 
 O sistema em questão, permite que o usuário seja capaz de gerenciar uma clínica veterinária de forma fácil e dinâmica. Podendo cadastrar e editar informações dos tutores.
