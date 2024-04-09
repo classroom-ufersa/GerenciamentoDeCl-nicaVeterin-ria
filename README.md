@@ -51,6 +51,9 @@ As sequintes opçãoes estão presentes no nosso menu:
 │
 └───Projeto em c
         │
+        ├──bin
+            │
+            └───main.exe
         ├──Files
             │
             └───arquivo.txt
