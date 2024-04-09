@@ -19,17 +19,17 @@ O sistema em questão, permite que o usuário seja capaz de gerenciar uma clíni
 # funcionalidades
 O código em ambas as linguagens apresentam as sequintes funcionalidas:
 
-- `Gerenciamento de tutores`: Adiciona, remove e lista os tutores e seus animais cadastrados em um arquivo.txt  
-- `Gerenciamento de animais`: Adiciona e remova animais, busca animais pelo nome, além de editar as informações de um animal em específico
+- `Gerenciamento de tutores:` Adiciona, remove e lista os tutores e seus animais cadastrados em um arquivo.txt  
+- `Gerenciamento de animais:` Adiciona e remove animais, busca animais pelo nome, além de editar as informações de um animal em específico
 
 # Menu
 As sequintes opçãoes estão presentes no nosso menu:
 
-- `Adiciona Tutores`: Cria um novo tutor na lista
-- `Remove tutor`: Remove um tutor da lista
-- `Adiciona Animal`: Adiciona animal a um tutor presente na lista
-- `Remove Animal`: Remove um animal da lista
-- `Editar informação de um animal`: Edita algum atributo pertecente a algum animal como nome, idade, espécie e saúde
-- `Busca animal por nome`: Busca algum animal presente na lista pelo nome
-- `Listar tutores e seus animais`: Mostra a lista de tutores e seus respectivos animais
-- `Sair`: finaliza o programa
+- `Adiciona Tutores:` Cria um novo tutor na lista
+- `Remove tutor:` Remove um tutor da lista
+- `Adiciona Animal:` Adiciona animal a um tutor presente na lista
+- `Remove Animal:` Remove um animal da lista
+- `Editar informação de um animal:` Edita algum atributo pertecente a algum animal como nome, idade, espécie e saúde
+- `Busca animal por nome:` Busca algum animal presente na lista pelo nome
+- `Listar tutores e seus animais:` Mostra a lista de tutores e seus respectivos animais
+- `Sair:` finaliza o programa
