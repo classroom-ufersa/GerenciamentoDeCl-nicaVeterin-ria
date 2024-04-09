@@ -20,7 +20,7 @@ O sistema em questão, permite que o usuário seja capaz de gerenciar uma clíni
 O código em ambas as linguagens apresentam as sequintes funcionalidas:
 
 - `Gerenciamento de tutores:` Adiciona, remove e lista os tutores e seus animais cadastrados em um arquivo.txt  
-- `Gerenciamento de animais:` Adiciona e remove animais, busca animais pelo nome, além de editar as informações de um animal em específico
+- `Gerenciamento de animais:` Adiciona e remove animais, busca animais pelo nome, além de editar as informações de um animal
 
 # Menu
 As sequintes opçãoes estão presentes no nosso menu:
