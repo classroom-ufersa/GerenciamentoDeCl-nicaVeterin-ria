@@ -44,7 +44,7 @@ def listar_tutores():
         animais_tutor = []
         for linha in arquivo:
             linha = linha.strip()
-            if linha.startswith("Tutor"):
+            if linha.startswith('Tutor'):
                 if nome and contato and documento:
                     tutores.append(Tutores(nome, contato, documento, animais_tutor))
                 nome, contato, documento = linha.split(" | ")[1:]
@@ -52,11 +52,11 @@ def listar_tutores():
                 contato = contato.split(":")[1].strip()
                 documento = documento.split(":")[1].strip()
                 animais_tutor = []
-            elif linha.startswith("Nome:"):
-                nome_animal = linha.split("Nome: ")[1].split(" |")[0].strip()
-                idade = linha.split("Idade: ")[1].split(" |")[0].strip()
-                especie = linha.split("Especie: ")[1].split(" |")[0].strip()
-                saude = linha.split("Saude: ")[1].strip()
+            elif linha.startswith('Nome:'):
+                nome_animal = linha.split('Nome: ')[1].split(" |")[0].strip()
+                idade = linha.split('Idade: ')[1].split(" |")[0].strip()
+                especie = linha.split('Especie: ')[1].split(" |")[0].strip()
+                saude = linha.split('Saude: ')[1].strip()
                 animal = Animais(nome_animal, idade, especie, saude)
                 animais_tutor.append(animal)
         if nome and contato and documento:

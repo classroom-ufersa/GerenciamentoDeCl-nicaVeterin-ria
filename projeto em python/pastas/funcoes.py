@@ -45,7 +45,7 @@ def escolhe_opcao_menu(lista_animais, lista_tutores):
     from pastas.tutores import criar_tutor, remove_tutor, mostra_arquivo
 
     try:
-        opcao_escolhida = input('escolha uma opção: ')
+        opcao_escolhida = input('\nescolha uma opção: ')
 
         if opcao_escolhida == '1':
             criar_tutor(lista_tutores)

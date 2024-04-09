@@ -203,16 +203,24 @@ def escolhe_opcao_editar(tutores, animal, tutor):
     Returns:
     None
     '''
-    from pastas.funcoes import exibe_subtitulo
+    from pastas.funcoes import exibe_subtitulo, obter_numero_inteiro
     from pastas.tutores import salva_arquivo
     from main import main
     
     try:
         menu_editar_animal()
-        opcao_escolhida = input('Escolha um opção: ')
+        opcao_escolhida = input('\nEscolha um opção: ')
         if opcao_escolhida == '1':
             exibe_subtitulo('Novo nome')
             novo_nome = str(input('Informe o novo nome do animal: '))
+            while not novo_nome.strip() or novo_nome.isdigit():
+                if novo_nome.isdigit():
+                    exibe_subtitulo('Novo nome')
+                    novo_nome = input('O nome do animal não pode ser um número. Por favor, informe novamente: ')
+                else:
+                    exibe_subtitulo('Novo nome')
+                    novo_nome = input('O nome do animal não pode ficar em branco. Por favor, informe novamente: ')
+
             novo_nome= novo_nome.title()
             animal.nome = novo_nome
             tutor.animais_tutor.sort(key=lambda x: x.nome)
@@ -220,13 +228,21 @@ def escolhe_opcao_editar(tutores, animal, tutor):
             escolhe_opcao_editar(tutores, animal, tutor)
         elif opcao_escolhida == '2':
             exibe_subtitulo('Nova idade')
-            nova_idade = int(input('Informe a nova idade do animal: '))
+            nova_idade = obter_numero_inteiro('Nova idade')
             animal.idade = nova_idade
             salva_arquivo(tutores)
             escolhe_opcao_editar(tutores, animal, tutor)
         elif opcao_escolhida == '3':
-            exibe_subtitulo('Novo especie')
+            exibe_subtitulo('Nova espécie')
             nova_especie = str(input('Informe o nova espécie do animal: '))
+            while not nova_especie.strip() or nova_especie.isdigit():
+                if nova_especie.isdigit():
+                    exibe_subtitulo('Nova espécie')
+                    nova_especie = input('O nome do animal não pode ser um número. Por favor, informe novamente: ')
+                else:
+                    exibe_subtitulo('Nova espécie')
+                    nova_especie = input('O nome do animal não pode ficar em branco. Por favor, informe novamente: ')
+
             nova_especie = nova_especie.title()
             animal.especie = nova_especie
             salva_arquivo(tutores)
@@ -234,6 +250,14 @@ def escolhe_opcao_editar(tutores, animal, tutor):
         elif opcao_escolhida == '4':
             exibe_subtitulo('Novo estado de saúde')
             nova_saude = str(input('Informe o novo estado de saúde do animal: '))
+            while not nova_saude.strip() or nova_saude.isdigit():
+                if nova_saude.isdigit():
+                    exibe_subtitulo('Novo estado de saúde')
+                    nova_saude = input('O nome do animal não pode ser um número. Por favor, informe novamente: ')
+                else:
+                    exibe_subtitulo('Nova estado de saúde')
+                    nova_saude = input('O nome do animal não pode ficar em branco. Por favor, informe novamente: ')
+
             nova_saude = nova_saude.title()
             animal.saude = nova_saude
             salva_arquivo(tutores)
